@@ -9,11 +9,10 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtGui import QFont, QColor, QPalette
 from PyQt5.QtCore import Qt
-from person import person
-from Student import Student
-from Instructor import Instructor
-from Course import Course
-from database import DatabaseManager
+from src.models import Student
+from src.models import Instructor
+from src.models import Course
+from db.sqlite_repo import SQLiteRepository
 
 PRIMARY_COLOR = "#840132"
 TEXT_COLOR = "#ffffff"
@@ -107,7 +106,7 @@ class SchoolManagementSystem(QMainWindow):
         self.setWindowTitle("School Management System")
         self.setGeometry(100, 100, 1100, 700)
         self.setStyleSheet(ROUNDED_STYLE)
-        self.db = DatabaseManager()
+        self.db = SQLiteRepository()
         self.init_ui()
 
     def init_ui(self):
@@ -392,8 +391,8 @@ class SchoolManagementSystem(QMainWindow):
             return
 
         try:
-            student = Student(name, age, email, student_id)
-            self.db.create_student(name, age, email, student_id)
+            student = Student(name, int(age), email, student_id)
+            self.db.add_student(student.student_id, student.name, student.age, student.email)
             QMessageBox.information(self, "Success", "Student added successfully!")
         except ValueError as e:
             QMessageBox.warning(self, "Validation Error", str(e))
@@ -422,8 +421,8 @@ class SchoolManagementSystem(QMainWindow):
             return
 
         try:
-            instructor = Instructor(name, age, email, instructor_id)
-            self.db.create_instructor(name, age, email, instructor_id)
+            instructor = Instructor(name, int(age), email, instructor_id)
+            self.db.add_instructor(instructor.instructor_id, instructor.name, instructor.age, instructor.email)
             QMessageBox.information(self, "Success", "Instructor added successfully!")
         except ValueError as e:
             QMessageBox.warning(self, "Validation Error", str(e))
@@ -463,7 +462,7 @@ class SchoolManagementSystem(QMainWindow):
                 instructor_data['instructor_id']
             )
             course = Course(course_id, course_name, temp_instructor)
-            self.db.create_course(course_id, course_name, instructor_id)
+            self.db.add_course(course_id, course_name, instructor_id)
             QMessageBox.information(self, "Success", "Course added successfully!")
         except ValueError as e:
             QMessageBox.warning(self, "Validation Error", str(e))
@@ -496,11 +495,8 @@ class SchoolManagementSystem(QMainWindow):
             return
 
         try:
-            success = self.db.register_student(student_id, course_id)
-            if success:
-                QMessageBox.information(self, "Success", f"{student['name']} registered for {course['course_name']} successfully!")
-            else:
-                QMessageBox.information(self, "Info", "Student is already registered in this course.")
+            self.db.register_student(student_id, course_id)
+            QMessageBox.information(self, "Success", f"{student['name']} registered for {course['course_name']} successfully!")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Registration failed: {e}")
 
@@ -588,8 +584,15 @@ class SchoolManagementSystem(QMainWindow):
                 QMessageBox.warning(self, "Invalid", "All fields are required.")
                 return
             try:
-                test_student = Student(name, age, email, new_id)
-                self.db.update_student(current_id, name, age, email, new_id)
+                test_student = Student(name, int(age), email, new_id)
+                if new_id != current_id:
+                    # Update primary key directly to preserve registrations (ON UPDATE CASCADE)
+                    self.db.conn.execute("UPDATE STUDENTS SET student_id=? WHERE student_id=?", (new_id, current_id))
+                    # Update other fields
+                    self.db.update_student(new_id, name=test_student.name, age=test_student.age, email=test_student.email)
+                    self.db.conn.commit()
+                else:
+                    self.db.update_student(current_id, name=test_student.name, age=test_student.age, email=test_student.email)
                 self.refresh_table()
             except ValueError as e:
                 QMessageBox.warning(self, "Validation Error", str(e))
@@ -616,8 +619,14 @@ class SchoolManagementSystem(QMainWindow):
                 return
 
             try:
-                test_instructor = Instructor(name, age, email, new_id)
-                self.db.update_instructor(current_id, name, age, email, new_id)
+                test_instructor = Instructor(name, int(age), email, new_id)
+                if new_id != current_id:
+                    # Update PK; COURSES.i_id has ON UPDATE CASCADE
+                    self.db.conn.execute("UPDATE INSTRUCTORS SET instructor_id=? WHERE instructor_id=?", (new_id, current_id))
+                    self.db.update_instructor(new_id, name=test_instructor.name, age=test_instructor.age, email=test_instructor.email)
+                    self.db.conn.commit()
+                else:
+                    self.db.update_instructor(current_id, name=test_instructor.name, age=test_instructor.age, email=test_instructor.email)
                 self.refresh_table()
                 self.update_course_and_registration()
             except ValueError as e:
@@ -644,7 +653,7 @@ class SchoolManagementSystem(QMainWindow):
                 self.db.delete_course(idnum)
             elif typ == "Instructor":
                 courses = self.db.get_all_courses()
-                instructor_courses = [c for c in courses if c['instructor_id'] == idnum]
+                instructor_courses = [c for c in courses if c.get('i_id') == idnum]
                 if instructor_courses:
                     resp = QMessageBox.question(
                         self, "Also delete courses?",
@@ -672,15 +681,19 @@ class SchoolManagementSystem(QMainWindow):
             return
             
         self.search_table.setRowCount(0)
-        results = self.db.search_records(query)
-        for result in results:
-            self._add_search_row(
-                result['type'], 
-                result['name'], 
-                result['id_number'], 
-                result['email'], 
-                result['age']
-            )
+        q = query.lower()
+        # students
+        for s in self.db.get_all_students():
+            if q in str(s.get('name','')).lower() or q in str(s.get('student_id','')).lower():
+                self._add_search_row('Student', s['name'], s['student_id'], s['email'], s['age'])
+        # instructors
+        for i in self.db.get_all_instructors():
+            if q in str(i.get('name','')).lower() or q in str(i.get('instructor_id','')).lower():
+                self._add_search_row('Instructor', i['name'], i['instructor_id'], i['email'], i['age'])
+        # courses
+        for c in self.db.get_all_courses():
+            if q in str(c.get('course_name','')).lower() or q in str(c.get('course_id','')).lower():
+                self._add_search_row('Course', c['course_name'], c['course_id'], '', '')
 
     def _add_search_row(self, typ, name, idnum, email, age):
         """Helper method to add a row to the search results table."""
@@ -757,14 +770,11 @@ class SchoolManagementSystem(QMainWindow):
         """Create a backup of the current database."""
         try:
             filename, _ = QFileDialog.getSaveFileName(
-                self, "Backup Database", "", "Database Files (*.db)"
+                self, "Backup Database", "", "Database Files (*.sqlite *.db)"
             )
             if filename:
-                backup_path = self.db.backup_database(filename)
-                if backup_path:
-                    QMessageBox.information(self, "Backup", f"Database backed up to {backup_path}")
-                else:
-                    QMessageBox.critical(self, "Error", "Failed to create backup.")
+                backup_path = self.db.backup(filename)
+                QMessageBox.information(self, "Backup", f"Database backed up to {backup_path}")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Backup failed: {e}")
     
@@ -772,7 +782,7 @@ class SchoolManagementSystem(QMainWindow):
         """Restore the database from a backup file."""
         try:
             filename, _ = QFileDialog.getOpenFileName(
-                self, "Restore Database", "", "Database Files (*.db)"
+                self, "Restore Database", "", "Database Files (*.sqlite *.db)"
             )
             if filename:
                 reply = QMessageBox.question(
@@ -781,13 +791,16 @@ class SchoolManagementSystem(QMainWindow):
                     QMessageBox.Yes | QMessageBox.No
                 )
                 if reply == QMessageBox.Yes:
-                    success = self.db.restore_database(filename)
-                    if success:
-                        self.refresh_table()
-                        self.update_course_and_registration()
-                        QMessageBox.information(self, "Restore", "Database restored successfully.")
-                    else:
-                        QMessageBox.critical(self, "Error", "Failed to restore database.")
+                    # Replace the underlying DB file and reopen connection
+                    from pathlib import Path
+                    import shutil
+                    self.db.close()
+                    dest = Path(self.db.db_path).resolve()
+                    shutil.copy2(filename, dest)
+                    self.db = SQLiteRepository(dest)
+                    self.refresh_table()
+                    self.update_course_and_registration()
+                    QMessageBox.information(self, "Restore", "Database restored successfully.")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Restore failed: {e}")
 
