@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gui.qt_app module &mdash; School Management System (Tkinter) 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gui.qt_app_db module" href="gui.qt_app_db.html" />
+    <link rel="prev" title="gui package" href="gui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            School Management System (Tkinter)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">db</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="gui.html">gui package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="gui.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">gui.qt_app module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gui.qt_app.Banner"><code class="docutils literal notranslate"><span class="pre">Banner</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.qt_app.MainWindow"><code class="docutils literal notranslate"><span class="pre">MainWindow</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.qt_app.Store"><code class="docutils literal notranslate"><span class="pre">Store</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.qt_app.Table"><code class="docutils literal notranslate"><span class="pre">Table</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gui.qt_app.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gui.qt_app_db.html">gui.qt_app_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.tkinter_app.html">gui.tkinter_app module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gui.tkinter_app_db.html">gui.tkinter_app_db module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="gui.html#module-gui">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">models package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation.html">validation package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">School Management System (Tkinter)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="gui.html">gui package</a></li>
+      <li class="breadcrumb-item active">gui.qt_app module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/gui.qt_app.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-gui.qt_app">
+<span id="gui-qt-app-module"></span><h1>gui.qt_app module<a class="headerlink" href="#module-gui.qt_app" title="Link to this heading"></a></h1>
+<p>PyQt5 GUI: School Management System</p>
+<p>Uses your existing domain &amp; persistence code:
+- src/models/{person.py,student.py,instructor.py,course.py}
+- src/persistence/json_store.py (save_to_json, load_from_json)
+- src/validation/validators.py</p>
+<dl class="simple">
+<dt>Run from the project root (folder that contains <cite>src/</cite>):</dt><dd><p>python -m src.gui.qt_app</p>
+</dd>
+<dt>or</dt><dd><p>python src/gui/qt_app.py</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="gui.qt_app.Banner">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Banner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#Banner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.Banner" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Top banner with optional logo + title.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.Banner.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#Banner.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.Banner.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.Banner._load_logo">
+<span class="sig-name descname"><span class="pre">_load_logo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">QPixmap</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/gui/qt_app.html#Banner._load_logo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.Banner._load_logo" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MainWindow</span></span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QMainWindow</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._confirm">
+<span class="sig-name descname"><span class="pre">_confirm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._confirm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._confirm" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._error">
+<span class="sig-name descname"><span class="pre">_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._error" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._export_table_csv">
+<span class="sig-name descname"><span class="pre">_export_table_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">QTableWidget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._export_table_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._export_table_csv" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._fill_courses">
+<span class="sig-name descname"><span class="pre">_fill_courses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gui.qt_app.Table" title="gui.qt_app.Table"><span class="pre">Table</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._fill_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._fill_courses" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._fill_instructors">
+<span class="sig-name descname"><span class="pre">_fill_instructors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gui.qt_app.Table" title="gui.qt_app.Table"><span class="pre">Table</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._fill_instructors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._fill_instructors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._fill_students">
+<span class="sig-name descname"><span class="pre">_fill_students</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#gui.qt_app.Table" title="gui.qt_app.Table"><span class="pre">Table</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">col</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._fill_students"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._fill_students" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._info">
+<span class="sig-name descname"><span class="pre">_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._info"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._info" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._init_courses_tab">
+<span class="sig-name descname"><span class="pre">_init_courses_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._init_courses_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._init_courses_tab" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._init_instructors_tab">
+<span class="sig-name descname"><span class="pre">_init_instructors_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._init_instructors_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._init_instructors_tab" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._init_io_tab">
+<span class="sig-name descname"><span class="pre">_init_io_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._init_io_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._init_io_tab" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._init_records_tab">
+<span class="sig-name descname"><span class="pre">_init_records_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._init_records_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._init_records_tab" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._init_relations_tab">
+<span class="sig-name descname"><span class="pre">_init_relations_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._init_relations_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._init_relations_tab" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._init_students_tab">
+<span class="sig-name descname"><span class="pre">_init_students_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._init_students_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._init_students_tab" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_add_or_update_course">
+<span class="sig-name descname"><span class="pre">_on_add_or_update_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_add_or_update_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_add_or_update_course" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_add_or_update_instructor">
+<span class="sig-name descname"><span class="pre">_on_add_or_update_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_add_or_update_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_add_or_update_instructor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_add_or_update_student">
+<span class="sig-name descname"><span class="pre">_on_add_or_update_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_add_or_update_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_add_or_update_student" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_apply_search">
+<span class="sig-name descname"><span class="pre">_on_apply_search</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_apply_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_apply_search" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_assign_instructor">
+<span class="sig-name descname"><span class="pre">_on_assign_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_assign_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_assign_instructor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_clear">
+<span class="sig-name descname"><span class="pre">_on_clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_clear" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_clear_search">
+<span class="sig-name descname"><span class="pre">_on_clear_search</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_clear_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_clear_search" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_delete_selected_course">
+<span class="sig-name descname"><span class="pre">_on_delete_selected_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_delete_selected_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_delete_selected_course" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_delete_selected_instructor">
+<span class="sig-name descname"><span class="pre">_on_delete_selected_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_delete_selected_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_delete_selected_instructor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_delete_selected_student">
+<span class="sig-name descname"><span class="pre">_on_delete_selected_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_delete_selected_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_delete_selected_student" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_load">
+<span class="sig-name descname"><span class="pre">_on_load</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_load" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_register_student">
+<span class="sig-name descname"><span class="pre">_on_register_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_register_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_register_student" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._on_save">
+<span class="sig-name descname"><span class="pre">_on_save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._on_save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._on_save" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._refresh_all">
+<span class="sig-name descname"><span class="pre">_refresh_all</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._refresh_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._refresh_all" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._refresh_courses_table">
+<span class="sig-name descname"><span class="pre">_refresh_courses_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._refresh_courses_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._refresh_courses_table" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._refresh_instructors_table">
+<span class="sig-name descname"><span class="pre">_refresh_instructors_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._refresh_instructors_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._refresh_instructors_table" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._refresh_records_views">
+<span class="sig-name descname"><span class="pre">_refresh_records_views</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._refresh_records_views"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._refresh_records_views" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._refresh_relation_inputs">
+<span class="sig-name descname"><span class="pre">_refresh_relation_inputs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._refresh_relation_inputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._refresh_relation_inputs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.MainWindow._refresh_students_table">
+<span class="sig-name descname"><span class="pre">_refresh_students_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#MainWindow._refresh_students_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.MainWindow._refresh_students_table" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gui.qt_app.Store">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">students</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'dict[str,</span> <span class="pre">Student]'</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'dict[str,</span> <span class="pre">Instructor]'</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">courses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="s"><span class="pre">'dict[str,</span> <span class="pre">Course]'</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#Store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.Store" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.Store.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">students</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Student</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Instructor</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">courses</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Course</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#gui.qt_app.Store.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.qt_app.Store.courses">
+<span class="sig-name descname"><span class="pre">courses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Course</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#gui.qt_app.Store.courses" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.Store.empty">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#gui.qt_app.Store" title="gui.qt_app.Store"><span class="pre">Store</span></a></span></span><a class="reference internal" href="_modules/gui/qt_app.html#Store.empty"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.Store.empty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.qt_app.Store.instructors">
+<span class="sig-name descname"><span class="pre">instructors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Instructor</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#gui.qt_app.Store.instructors" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gui.qt_app.Store.students">
+<span class="sig-name descname"><span class="pre">students</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Student</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#gui.qt_app.Store.students" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gui.qt_app.Table">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#Table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.Table" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QTableWidget</span></code></p>
+<p>QTableWidget with maroon header + zebra stripes + no grid noise.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.Table.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#Table.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.Table.__init__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.Table.clear_rows">
+<span class="sig-name descname"><span class="pre">clear_rows</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#Table.clear_rows"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.Table.clear_rows" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.qt_app.Table.set_headers">
+<span class="sig-name descname"><span class="pre">set_headers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#Table.set_headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.Table.set_headers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="gui.qt_app.main">
+<span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/gui/qt_app.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.qt_app.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gui.html" class="btn btn-neutral float-left" title="gui package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gui.qt_app_db.html" class="btn btn-neutral float-right" title="gui.qt_app_db module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tamara Fakih.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
