@@ -57,11 +57,12 @@ Check your Python version:
 
 ```bash
 python --version
+exit
 
 
 
 
-2. 📥 Clone the Repository
+### 2. 📥 Clone the Repository
 Use git to clone the project locally:
 
 bash
