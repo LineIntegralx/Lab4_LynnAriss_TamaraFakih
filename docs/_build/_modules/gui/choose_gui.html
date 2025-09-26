@@ -1,0 +1,179 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gui.choose_gui &mdash; School_Management_System 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            School_Management_System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/gui.html">gui package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/gui.choose_gui.html">gui.choose_gui module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/gui.Pyqt5.html">gui.Pyqt5 module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/gui.tkinter_app_db.html">gui.tkinter_app_db module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/models.html">models package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/models.course.html">models.course module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/models.instructor.html">models.instructor module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/models.person.html">models.person module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/models.student.html">models.student module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/validation.html">validation package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../source/validation.validators.html">validation.validators module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">School_Management_System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">gui.choose_gui</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for gui.choose_gui</h1><div class="highlight"><pre>
+<span></span><span class="c1"># gui/choose_gui.py</span>
+<span class="sd">&quot;&quot;&quot;Launcher module to choose between PyQt5 and Tkinter GUI applications.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="kn">import</span> <span class="n">messagebox</span>
+
+<div class="viewcode-block" id="launch_pyqt">
+<a class="viewcode-back" href="../../source/gui.choose_gui.html#gui.choose_gui.launch_pyqt">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">launch_pyqt</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Launch the PyQt5 GUI application.</span>
+
+<span class="sd">    :raises ImportError: If PyQt5 or the PyQt5 application module cannot be imported.</span>
+<span class="sd">    :returns: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">Pyqt5</span><span class="w"> </span><span class="kn">import</span> <span class="n">SchoolManagementSystem</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">PyQt5.QtWidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">QApplication</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="s2">&quot;PyQt5 module not found!&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">root</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">QApplication</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">SchoolManagementSystem</span><span class="p">()</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span></div>
+
+
+<div class="viewcode-block" id="launch_tkinter">
+<a class="viewcode-back" href="../../source/gui.choose_gui.html#gui.choose_gui.launch_tkinter">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">launch_tkinter</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Launch the Tkinter GUI application.</span>
+
+<span class="sd">    :raises ImportError: If Tkinter or the Tkinter application module cannot be imported.</span>
+<span class="sd">    :returns: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">tkinter_app_db</span><span class="w"> </span><span class="kn">import</span> <span class="n">App</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="s2">&quot;Tkinter app module not found!&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="n">messagebox</span><span class="o">.</span><span class="n">showerror</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="s2">&quot;Tkinter module not installed in your Python environment!&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="n">root</span><span class="o">.</span><span class="n">destroy</span><span class="p">()</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">App</span><span class="p">()</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span></div>
+
+
+<span class="n">root</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>
+<span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Choose GUI Library&quot;</span><span class="p">)</span>
+<span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;320x150&quot;</span><span class="p">)</span>
+<span class="n">root</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">label</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Select GUI Library to Launch&quot;</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Segoe UI&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">label</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">btn_pyqt</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;PyQt5&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">launch_pyqt</span><span class="p">)</span>
+<span class="n">btn_pyqt</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">btn_tk</span> <span class="o">=</span> <span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Tkinter&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">launch_tkinter</span><span class="p">)</span>
+<span class="n">btn_tk</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="n">root</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tamara_Fakih_&amp;Lynn_Ariss.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

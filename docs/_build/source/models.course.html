@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>models.course module &mdash; School_Management_System 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            School_Management_System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">models.course module</a><ul>
+<li><a class="reference internal" href="#models.course.Course"><code class="docutils literal notranslate"><span class="pre">Course</span></code></a><ul>
+<li><a class="reference internal" href="#models.course.Course.course_id"><code class="docutils literal notranslate"><span class="pre">Course.course_id</span></code></a></li>
+<li><a class="reference internal" href="#models.course.Course.course_name"><code class="docutils literal notranslate"><span class="pre">Course.course_name</span></code></a></li>
+<li><a class="reference internal" href="#models.course.Course.instructor"><code class="docutils literal notranslate"><span class="pre">Course.instructor</span></code></a></li>
+<li><a class="reference internal" href="#models.course.Course.enrolled_students"><code class="docutils literal notranslate"><span class="pre">Course.enrolled_students</span></code></a></li>
+<li><a class="reference internal" href="#models.course.Course.add_student"><code class="docutils literal notranslate"><span class="pre">Course.add_student()</span></code></a></li>
+<li><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">Course.course_id</span></code></a></li>
+<li><a class="reference internal" href="#id1"><code class="docutils literal notranslate"><span class="pre">Course.course_name</span></code></a></li>
+<li><a class="reference internal" href="#id2"><code class="docutils literal notranslate"><span class="pre">Course.enrolled_students</span></code></a></li>
+<li><a class="reference internal" href="#models.course.Course.from_dict"><code class="docutils literal notranslate"><span class="pre">Course.from_dict()</span></code></a></li>
+<li><a class="reference internal" href="#id3"><code class="docutils literal notranslate"><span class="pre">Course.instructor</span></code></a></li>
+<li><a class="reference internal" href="#models.course.Course.remove_student"><code class="docutils literal notranslate"><span class="pre">Course.remove_student()</span></code></a></li>
+<li><a class="reference internal" href="#models.course.Course.set_instructor"><code class="docutils literal notranslate"><span class="pre">Course.set_instructor()</span></code></a></li>
+<li><a class="reference internal" href="#models.course.Course.to_dict"><code class="docutils literal notranslate"><span class="pre">Course.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">School_Management_System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">models.course module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/models.course.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-models.course">
+<span id="models-course-module"></span><h1>models.course module<a class="headerlink" href="#module-models.course" title="Link to this heading"></a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">module<span class="colon">:</span></dt>
+<dd class="field-odd"><p>models.course</p>
+</dd>
+<dt class="field-even">synopsis<span class="colon">:</span></dt>
+<dd class="field-even"><p>Course entity with instructor and enrollment relations.</p>
+</dd>
+</dl>
+<p>This module defines the <code class="docutils literal notranslate"><span class="pre">Course</span></code> domain class used by the School Management
+System. A course has an ID, a name, an optional instructor, and a list of
+enrolled students. It also handles basic relationship wiring with the
+<code class="docutils literal notranslate"><span class="pre">Student</span></code> and <code class="docutils literal notranslate"><span class="pre">Instructor</span></code> objects (local updates only).</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Validation is delegated to <code class="docutils literal notranslate"><span class="pre">src.validation.validators</span></code>.</p></li>
+<li><p>The relationship helpers here keep both sides in sync (student &lt;-&gt; course,
+instructor &lt;-&gt; course) using simple local methods. Kinda manual but fine for lab.</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="models.course.Course">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.course.</span></span><span class="sig-name descname"><span class="pre">Course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor" title="models.instructor.Instructor"><span class="pre">Instructor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/models/course.html#Course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.course.Course" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Course model representing a single course offering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>course_id</strong> (<em>str</em>) – External identifier of the course (validated, normalized).</p></li>
+<li><p><strong>course_name</strong> (<em>str</em>) – Human-readable course title (validated, normalized).</p></li>
+<li><p><strong>instructor</strong> (<a class="reference internal" href="models.html#models.Instructor" title="models.Instructor"><em>Instructor</em></a><em>, </em><em>optional</em>) – The instructor initially assigned to this course (can be None).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.course.Course.course_id">
+<span class="sig-name descname"><span class="pre">course_id</span></span><a class="headerlink" href="#models.course.Course.course_id" title="Link to this definition"></a></dt>
+<dd><p>Normalized course ID (e.g., uppercased or trimmed).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.course.Course.course_name">
+<span class="sig-name descname"><span class="pre">course_name</span></span><a class="headerlink" href="#models.course.Course.course_name" title="Link to this definition"></a></dt>
+<dd><p>Normalized course name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.course.Course.instructor">
+<span class="sig-name descname"><span class="pre">instructor</span></span><a class="headerlink" href="#models.course.Course.instructor" title="Link to this definition"></a></dt>
+<dd><p>Current instructor or <code class="docutils literal notranslate"><span class="pre">None</span></code> if unassigned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="models.html#models.Instructor" title="models.Instructor">Instructor</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.course.Course.enrolled_students">
+<span class="sig-name descname"><span class="pre">enrolled_students</span></span><a class="headerlink" href="#models.course.Course.enrolled_students" title="Link to this definition"></a></dt>
+<dd><p>List of students registered in this course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[<a class="reference internal" href="models.html#models.Student" title="models.Student">Student</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__slots__</span></code> is used to keep the objects lightweight (and catch typos).</p></li>
+<li><p>Relationship updates call corresponding “local” helpers to avoid recursion.</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.course.Course.add_student">
+<span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.student.html#models.student.Student" title="models.student.Student"><span class="pre">Student</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/models/course.html#Course.add_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.course.Course.add_student" title="Link to this definition"></a></dt>
+<dd><p>Public API to enroll a student and sync the inverse relation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>student</strong> (<a class="reference internal" href="models.html#models.Student" title="models.Student"><em>Student</em></a>) – Student to enroll in this course.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Prevents duplicates.</p></li>
+<li><p>Ensures the student’s <code class="docutils literal notranslate"><span class="pre">registered_courses</span></code> includes this course.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">course_id</span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">course_name</span></span><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">enrolled_students</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.student.html#models.student.Student" title="models.student.Student"><span class="pre">Student</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.course.Course.from_dict">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#models.course.Course" title="models.course.Course"><span class="pre">Course</span></a></span></span><a class="reference internal" href="../_modules/models/course.html#Course.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.course.Course.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Construct a course from a dictionary (instructor is not attached here).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> (<em>dict</em>) – Dictionary with at least <code class="docutils literal notranslate"><span class="pre">course_id</span></code> and <code class="docutils literal notranslate"><span class="pre">course_name</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>New <code class="docutils literal notranslate"><span class="pre">Course</span></code> instance with no instructor assigned yet.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#models.course.Course" title="models.course.Course">Course</a></p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>The instructor is intentionally set to <code class="docutils literal notranslate"><span class="pre">None</span></code>; attach it later if needed.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">instructor</span></span><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.course.Course.remove_student">
+<span class="sig-name descname"><span class="pre">remove_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.student.html#models.student.Student" title="models.student.Student"><span class="pre">Student</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/models/course.html#Course.remove_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.course.Course.remove_student" title="Link to this definition"></a></dt>
+<dd><p>Remove a student and clean up the inverse link if present.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>student</strong> (<a class="reference internal" href="models.html#models.Student" title="models.Student"><em>Student</em></a>) – Student to remove from enrollment.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.course.Course.set_instructor">
+<span class="sig-name descname"><span class="pre">set_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor" title="models.instructor.Instructor"><span class="pre">Instructor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/models/course.html#Course.set_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.course.Course.set_instructor" title="Link to this definition"></a></dt>
+<dd><p>Assign or clear the instructor and keep both sides in sync.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instructor</strong> (<a class="reference internal" href="models.html#models.Instructor" title="models.Instructor"><em>Instructor</em></a><em> or </em><em>None</em>) – New instructor to assign or <code class="docutils literal notranslate"><span class="pre">None</span></code> to unassign.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If setting to None, the old instructor (if any) loses this course.</p></li>
+<li><p>If assigning a new instructor, the previous one is updated accordingly.</p></li>
+<li><p>Early-return if the instructor is unchanged.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.course.Course.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="../_modules/models/course.html#Course.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.course.Course.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Serialize the course to a plain dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Dict with keys: <code class="docutils literal notranslate"><span class="pre">course_id</span></code>, <code class="docutils literal notranslate"><span class="pre">course_name</span></code>, <code class="docutils literal notranslate"><span class="pre">instructor_id</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">enrolled_student_ids</span></code>.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>IDs only for related objects (keeps payload small).</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tamara_Fakih_&amp;Lynn_Ariss.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

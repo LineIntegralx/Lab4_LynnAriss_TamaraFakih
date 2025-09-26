@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gui.Pyqt5 module &mdash; School_Management_System 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            School_Management_System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">gui.Pyqt5 module</a><ul>
+<li><a class="reference internal" href="#gui.Pyqt5.EditDialog"><code class="docutils literal notranslate"><span class="pre">EditDialog</span></code></a><ul>
+<li><a class="reference internal" href="#gui.Pyqt5.EditDialog.get_values"><code class="docutils literal notranslate"><span class="pre">EditDialog.get_values()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem</span></code></a><ul>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.add_course"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.add_course()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.add_instructor"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.add_instructor()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.add_student"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.add_student()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.backup_database"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.backup_database()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.delete_selected"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.delete_selected()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.edit_selected"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.edit_selected()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.export_csv"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.export_csv()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.init_ui"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.init_ui()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.load_data"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.load_data()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.refresh_table"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.refresh_table()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.register_student"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.register_student()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.restore_database"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.restore_database()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.save_data"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.save_data()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.search_records"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.search_records()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.setup_course_tab"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.setup_course_tab()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.setup_display_tab"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.setup_display_tab()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.setup_instructor_tab"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.setup_instructor_tab()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.setup_registration_tab"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.setup_registration_tab()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.setup_search_tab"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.setup_search_tab()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.setup_student_tab"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.setup_student_tab()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.update_course_and_registration"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.update_course_and_registration()</span></code></a></li>
+<li><a class="reference internal" href="#gui.Pyqt5.SchoolManagementSystem.validate_email"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystem.validate_email()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">School_Management_System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">gui.Pyqt5 module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/gui.Pyqt5.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-gui.Pyqt5">
+<span id="gui-pyqt5-module"></span><h1>gui.Pyqt5 module<a class="headerlink" href="#module-gui.Pyqt5" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="gui.Pyqt5.EditDialog">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gui.Pyqt5.</span></span><span class="sig-name descname"><span class="pre">EditDialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#EditDialog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.EditDialog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QDialog</span></code></p>
+<p>A dialog for editing records whether for students or instructors.
+:param title: The title of the dialog window
+:type title: str
+:param fields: List of fields to be edited
+:type fields: list[str]
+:param values: List of current values of the fields
+:type values: list[str]
+:param parent: The parent widget of the dialog by default it is set to None
+:type parent: QWidget, optional</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.EditDialog.get_values">
+<span class="sig-name descname"><span class="pre">get_values</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#EditDialog.get_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.EditDialog.get_values" title="Link to this definition"></a></dt>
+<dd><p>Get the edited valuues entered in the dialog.
+:returns: List of edited values in the same order as fields
+:rtype: list[str]</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">gui.Pyqt5.</span></span><span class="sig-name descname"><span class="pre">SchoolManagementSystem</span></span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">QMainWindow</span></code></p>
+<p>This is the main appication window for the School Management System.
+:ivar db: Database managrement instance used for CURD operations
+:vartype db:DatabaseManager</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.add_course">
+<span class="sig-name descname"><span class="pre">add_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.add_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.add_course" title="Link to this definition"></a></dt>
+<dd><p>Add a new course to the database
+:raises ValueError: If the input data is invalid
+:raises sqlite3.IntegrityError: If the course ID already exists in the database</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.add_instructor">
+<span class="sig-name descname"><span class="pre">add_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.add_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.add_instructor" title="Link to this definition"></a></dt>
+<dd><p>Add a new instructor to the database
+:raises ValueError: If the input data is invalid
+:raises sqlite3.IntegrityError: If the instructor ID already exists in the database</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.add_student">
+<span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.add_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.add_student" title="Link to this definition"></a></dt>
+<dd><p>Add a new student to the database
+:raises ValueError: If the input data is invalid
+:raises sqlite3.IntegrityError: If the student ID already exists in the database</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.backup_database">
+<span class="sig-name descname"><span class="pre">backup_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.backup_database"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.backup_database" title="Link to this definition"></a></dt>
+<dd><p>Create a backup of the current database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.delete_selected">
+<span class="sig-name descname"><span class="pre">delete_selected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.delete_selected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.delete_selected" title="Link to this definition"></a></dt>
+<dd><p>Delete the selected record from the display table and database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.edit_selected">
+<span class="sig-name descname"><span class="pre">edit_selected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.edit_selected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.edit_selected" title="Link to this definition"></a></dt>
+<dd><p>Edit the selected record in the display table.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.export_csv">
+<span class="sig-name descname"><span class="pre">export_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.export_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.export_csv" title="Link to this definition"></a></dt>
+<dd><p>Export all data to a CSV file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.init_ui">
+<span class="sig-name descname"><span class="pre">init_ui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.init_ui"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.init_ui" title="Link to this definition"></a></dt>
+<dd><p>Initialize the user interface components.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.load_data" title="Link to this definition"></a></dt>
+<dd><p>Load data from a JSON file into the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.refresh_table">
+<span class="sig-name descname"><span class="pre">refresh_table</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.refresh_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.refresh_table" title="Link to this definition"></a></dt>
+<dd><p>Refresh the display table with the latest data from the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.register_student">
+<span class="sig-name descname"><span class="pre">register_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.register_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.register_student" title="Link to this definition"></a></dt>
+<dd><p>Register a student for a course
+:raises ValueError: If the input data is invalid</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.restore_database">
+<span class="sig-name descname"><span class="pre">restore_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.restore_database"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.restore_database" title="Link to this definition"></a></dt>
+<dd><p>Restore the database from a backup file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.save_data">
+<span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.save_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.save_data" title="Link to this definition"></a></dt>
+<dd><p>Export all data to a JSON file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.search_records">
+<span class="sig-name descname"><span class="pre">search_records</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.search_records"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.search_records" title="Link to this definition"></a></dt>
+<dd><p>Search records by name or ID and display results in the search table.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.setup_course_tab">
+<span class="sig-name descname"><span class="pre">setup_course_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.setup_course_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.setup_course_tab" title="Link to this definition"></a></dt>
+<dd><p>Set up the ‘Courses’ tab UI with input fields and an Add button</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.setup_display_tab">
+<span class="sig-name descname"><span class="pre">setup_display_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.setup_display_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.setup_display_tab" title="Link to this definition"></a></dt>
+<dd><p>Set up the ‘Display All’ tab UI with a table to show all records and Edit/Delete buttons.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.setup_instructor_tab">
+<span class="sig-name descname"><span class="pre">setup_instructor_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.setup_instructor_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.setup_instructor_tab" title="Link to this definition"></a></dt>
+<dd><p>Set up the ‘Instructors’ tab UI with input fields and an Add button</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.setup_registration_tab">
+<span class="sig-name descname"><span class="pre">setup_registration_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.setup_registration_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.setup_registration_tab" title="Link to this definition"></a></dt>
+<dd><p>Set up the ‘Registration’ tab UI with the Student ID and Course selection fields.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.setup_search_tab">
+<span class="sig-name descname"><span class="pre">setup_search_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.setup_search_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.setup_search_tab" title="Link to this definition"></a></dt>
+<dd><p>Set up the ‘Search’ tab UI with a search input and a table to show results.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.setup_student_tab">
+<span class="sig-name descname"><span class="pre">setup_student_tab</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.setup_student_tab"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.setup_student_tab" title="Link to this definition"></a></dt>
+<dd><p>Set up the ‘Studetns’tab UI with input fields and an Add buttons</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.update_course_and_registration">
+<span class="sig-name descname"><span class="pre">update_course_and_registration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.update_course_and_registration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.update_course_and_registration" title="Link to this definition"></a></dt>
+<dd><p>Update the course and registration dropdowns with the latest data from the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gui.Pyqt5.SchoolManagementSystem.validate_email">
+<span class="sig-name descname"><span class="pre">validate_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/gui/Pyqt5.html#SchoolManagementSystem.validate_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#gui.Pyqt5.SchoolManagementSystem.validate_email" title="Link to this definition"></a></dt>
+<dd><p>Validate email format using a simple regex.
+:param email: The email address to validate
+:type email: str
+:returns: True if email is valid, False otherwise
+:rtype: bool</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tamara_Fakih_&amp;Lynn_Ariss.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

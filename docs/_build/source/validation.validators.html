@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>validation.validators module &mdash; School_Management_System 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            School_Management_System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">validation.validators module</a><ul>
+<li><a class="reference internal" href="#validation.validators.is_non_empty_string"><code class="docutils literal notranslate"><span class="pre">is_non_empty_string()</span></code></a></li>
+<li><a class="reference internal" href="#validation.validators.is_non_negative_int"><code class="docutils literal notranslate"><span class="pre">is_non_negative_int()</span></code></a></li>
+<li><a class="reference internal" href="#validation.validators.is_valid_course_id"><code class="docutils literal notranslate"><span class="pre">is_valid_course_id()</span></code></a></li>
+<li><a class="reference internal" href="#validation.validators.is_valid_course_name"><code class="docutils literal notranslate"><span class="pre">is_valid_course_name()</span></code></a></li>
+<li><a class="reference internal" href="#validation.validators.is_valid_email"><code class="docutils literal notranslate"><span class="pre">is_valid_email()</span></code></a></li>
+<li><a class="reference internal" href="#validation.validators.is_valid_instructor_id"><code class="docutils literal notranslate"><span class="pre">is_valid_instructor_id()</span></code></a></li>
+<li><a class="reference internal" href="#validation.validators.is_valid_person_name"><code class="docutils literal notranslate"><span class="pre">is_valid_person_name()</span></code></a></li>
+<li><a class="reference internal" href="#validation.validators.is_valid_student_id"><code class="docutils literal notranslate"><span class="pre">is_valid_student_id()</span></code></a></li>
+<li><a class="reference internal" href="#validation.validators.norm_email"><code class="docutils literal notranslate"><span class="pre">norm_email()</span></code></a></li>
+<li><a class="reference internal" href="#validation.validators.norm_id"><code class="docutils literal notranslate"><span class="pre">norm_id()</span></code></a></li>
+<li><a class="reference internal" href="#validation.validators.norm_name"><code class="docutils literal notranslate"><span class="pre">norm_name()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">School_Management_System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">validation.validators module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/validation.validators.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-validation.validators">
+<span id="validation-validators-module"></span><h1>validation.validators module<a class="headerlink" href="#module-validation.validators" title="Link to this heading"></a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">module<span class="colon">:</span></dt>
+<dd class="field-odd"><p>src.validation.validators</p>
+</dd>
+<dt class="field-even">synopsis<span class="colon">:</span></dt>
+<dd class="field-even"><p>Regex-based validators and simple normalization helpers.</p>
+</dd>
+</dl>
+<p>This module centralizes basic input validation (email, IDs, names, etc.) and
+provides tiny normalization functions used across the School Management System.</p>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Regexes are intentionally conservative to keep the lab predictable.</p></li>
+<li><p>Normalizers aim for “reasonable” cleanup (case/spacing), not perfect i18n.</p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.is_non_empty_string">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">is_non_empty_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#is_non_empty_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.is_non_empty_string" title="Link to this definition"></a></dt>
+<dd><p>Check that <code class="docutils literal notranslate"><span class="pre">v</span></code> is a non-empty (non-whitespace-only) string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>Any</em>) – Value to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">v</span></code> is a non-empty string, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.is_non_negative_int">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">is_non_negative_int</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#is_non_negative_int"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.is_non_negative_int" title="Link to this definition"></a></dt>
+<dd><p>Return True if <code class="docutils literal notranslate"><span class="pre">v</span></code> can be cast to <code class="docutils literal notranslate"><span class="pre">int</span></code> and is <code class="docutils literal notranslate"><span class="pre">&gt;=</span> <span class="pre">0</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>Any</em>) – Value to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> for non-negative integers (after casting), else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.is_valid_course_id">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">is_valid_course_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#is_valid_course_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.is_valid_course_id" title="Link to this definition"></a></dt>
+<dd><p>Validate a course ID (e.g., <code class="docutils literal notranslate"><span class="pre">EECE435</span></code> or <code class="docutils literal notranslate"><span class="pre">EECE435L</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>Any</em>) – Value to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if matches <code class="docutils literal notranslate"><span class="pre">COURSE_ID_RE</span></code>, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.is_valid_course_name">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">is_valid_course_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#is_valid_course_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.is_valid_course_name" title="Link to this definition"></a></dt>
+<dd><p>Validate a course name for basic characters/length.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>Any</em>) – Value to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if matches <code class="docutils literal notranslate"><span class="pre">COURSE_NAME_RE</span></code>, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.is_valid_email">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">is_valid_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#is_valid_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.is_valid_email" title="Link to this definition"></a></dt>
+<dd><p>Validate email using a simple regex (not RFC-perfect, but fine for lab).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>Any</em>) – Value to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if <code class="docutils literal notranslate"><span class="pre">v</span></code> matches <code class="docutils literal notranslate"><span class="pre">EMAIL_RE</span></code>, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.is_valid_instructor_id">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">is_valid_instructor_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#is_valid_instructor_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.is_valid_instructor_id" title="Link to this definition"></a></dt>
+<dd><p>Validate an instructor ID using <code class="docutils literal notranslate"><span class="pre">INSTRUCTOR_ID_RE</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>Any</em>) – Value to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if matches the expected pattern, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.is_valid_person_name">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">is_valid_person_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#is_valid_person_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.is_valid_person_name" title="Link to this definition"></a></dt>
+<dd><p>Validate a person’s name against <code class="docutils literal notranslate"><span class="pre">PERSON_NAME_RE</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>Any</em>) – Value to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if name matches allowed pattern, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>This is pretty opinionated and not globally inclusive; okay for the lab.</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.is_valid_student_id">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">is_valid_student_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#is_valid_student_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.is_valid_student_id" title="Link to this definition"></a></dt>
+<dd><p>Validate a student ID using <code class="docutils literal notranslate"><span class="pre">STUDENT_ID_RE</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>v</strong> (<em>Any</em>) – Value to check.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if matches the expected pattern, else <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.norm_email">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">norm_email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#norm_email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.norm_email" title="Link to this definition"></a></dt>
+<dd><p>Normalize email by trimming and lowercasing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>str</em>) – Email string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalized email (lowercase).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.norm_id">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">norm_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#norm_id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.norm_id" title="Link to this definition"></a></dt>
+<dd><p>Normalize an ID by trimming and uppercasing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>str</em>) – Identifier string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalized ID (uppercase).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="validation.validators.norm_name">
+<span class="sig-prename descclassname"><span class="pre">validation.validators.</span></span><span class="sig-name descname"><span class="pre">norm_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/validation/validators.html#norm_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#validation.validators.norm_name" title="Link to this definition"></a></dt>
+<dd><p>Normalize a name with title-case and single spaces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>s</strong> (<em>str</em>) – Name string.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalized name (title-cased, internal whitespace squashed).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>This will “pretty up” names like <code class="docutils literal notranslate"><span class="pre">&quot;</span>&#160; <span class="pre">aLiCe</span>&#160;&#160; <span class="pre">o'connor</span>&#160; <span class="pre">&quot;</span></code> → <code class="docutils literal notranslate"><span class="pre">&quot;Alice</span> <span class="pre">O'Connor&quot;</span></code>.</p></li>
+</ul>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tamara_Fakih_&amp;Lynn_Ariss.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
