@@ -57,6 +57,10 @@ Check your Python version:
 
 ```bash
 python --version
+
+
+
+
 2. 📥 Clone the Repository
 Use git to clone the project locally:
 
