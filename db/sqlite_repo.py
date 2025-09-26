@@ -77,6 +77,12 @@ class SQLiteRepository:
         )
         self.conn.commit()
 
+    def get_all_students(self) -> List[Dict[str, Any]]:
+        """Return all students as a list of dictionaries sorted by name."""
+        cur = self.conn.execute("SELECT * FROM STUDENTS ORDER BY name ASC")
+        cols = [c[0] for c in cur.description]
+        return [dict(zip(cols, row)) for row in cur.fetchall()]
+
     def update_student(self, student_id: str, name: Optional[str] = None,
                        age: Optional[int] = None, email: Optional[str] = None) -> None:
         """Update existing student details.
@@ -106,6 +112,12 @@ class SQLiteRepository:
         values.append(student_id)
         self.conn.execute(f"UPDATE STUDENTS SET {', '.join(fields)} WHERE student_id=?", values)
         self.conn.commit()
+
+    def get_all_instructors(self) -> List[Dict[str, Any]]:
+        """Return all instructors as a list of dictionaries sorted by name."""
+        cur = self.conn.execute("SELECT * FROM INSTRUCTORS ORDER BY name ASC")
+        cols = [c[0] for c in cur.description]
+        return [dict(zip(cols, row)) for row in cur.fetchall()]
 
     def delete_student(self, student_id: str) -> None:
         """Delete a student record.
@@ -307,6 +319,12 @@ class SQLiteRepository:
         row = cur.fetchone()
         return dict(zip([c[0] for c in cur.description], row)) if row else None  # keep consistent
 
+    def get_all_courses(self) -> List[Dict[str, Any]]:
+        """Return all courses as a list of dictionaries sorted by course_id."""
+        cur = self.conn.execute("SELECT * FROM COURSES ORDER BY course_id ASC")
+        cols = [c[0] for c in cur.description]
+        return [dict(zip(cols, row)) for row in cur.fetchall()]
+
     # ---------- REGISTRATION ----------
     def register_student(self, s_id: str, c_id: str) -> None:
         """Register a student in a course.
@@ -437,6 +455,85 @@ class SQLiteRepository:
             self.conn.backup(backup_conn)
 
         return str(dest.resolve())
+
+    # ---------- JSON IMPORT / EXPORT ----------
+    def export_to_json(self, dest_path: Optional[str] = None) -> str:
+        """Export full database (students, instructors, courses, registrations) to JSON.
+
+        If ``dest_path`` is not provided, a timestamped file is created next to the DB.
+        Returns the absolute path to the written JSON file.
+        """
+        import json
+        from datetime import datetime
+
+        data = {
+            "students": self.get_all_students(),
+            "instructors": self.get_all_instructors(),
+            "courses": self.get_all_courses(),
+            "registrations": self.get_registrations(),
+        }
+
+        if dest_path is None:
+            ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+            dest = (self.db_path.parent / f"export_{ts}.json").resolve()
+        else:
+            dest = Path(dest_path).resolve()
+            dest.parent.mkdir(parents=True, exist_ok=True)
+
+        with open(dest, "w", encoding="utf-8") as fp:
+            json.dump(data, fp, ensure_ascii=False, indent=2)
+
+        return str(dest)
+
+    def import_from_json(self, src_path: str) -> bool:
+        """Import database content from a JSON file produced by :meth:`export_to_json`.
+
+        This replaces existing data. Returns True on success, False otherwise.
+        """
+        import json
+        p = Path(src_path)
+        if not p.exists():
+            return False
+        with open(p, "r", encoding="utf-8") as fp:
+            payload = json.load(fp)
+
+        try:
+            cur = self.conn.cursor()
+            cur.execute("PRAGMA foreign_keys = OFF;")
+            # wipe existing data (order matters due to FKs)
+            cur.execute("DELETE FROM REGISTRATION;")
+            cur.execute("DELETE FROM COURSES;")
+            cur.execute("DELETE FROM INSTRUCTORS;")
+            cur.execute("DELETE FROM STUDENTS;")
+
+            # re-insert in safe order: STUDENTS, INSTRUCTORS, COURSES, REGISTRATION
+            for s in payload.get("students", []):
+                cur.execute(
+                    "INSERT INTO STUDENTS (student_id, name, age, email) VALUES (?, ?, ?, ?)",
+                    (s["student_id"], s["name"], int(s["age"]), s["email"]),
+                )
+            for i in payload.get("instructors", []):
+                cur.execute(
+                    "INSERT INTO INSTRUCTORS (instructor_id, name, age, email) VALUES (?, ?, ?, ?)",
+                    (i["instructor_id"], i["name"], int(i["age"]), i["email"]),
+                )
+            for c in payload.get("courses", []):
+                cur.execute(
+                    "INSERT INTO COURSES (course_id, course_name, i_id) VALUES (?, ?, ?)",
+                    (c["course_id"], c["course_name"], c.get("i_id")),
+                )
+            for r in payload.get("registrations", []):
+                cur.execute(
+                    "INSERT OR IGNORE INTO REGISTRATION (s_id, c_id) VALUES (?, ?)",
+                    (r["s_id"], r["c_id"]),
+                )
+
+            cur.execute("PRAGMA foreign_keys = ON;")
+            self.conn.commit()
+            return True
+        except Exception:
+            self.conn.rollback()
+            return False
 
     def close(self):
         """Close the database connection.

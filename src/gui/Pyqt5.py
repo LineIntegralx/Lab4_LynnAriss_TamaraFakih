@@ -9,6 +9,10 @@ from PyQt5.QtWidgets import (
 )
 from PyQt5.QtGui import QFont, QColor, QPalette
 from PyQt5.QtCore import Qt
+import sys
+import os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+
 from src.models import Student
 from src.models import Instructor
 from src.models import Course
@@ -462,7 +466,7 @@ class SchoolManagementSystem(QMainWindow):
                 instructor_data['instructor_id']
             )
             course = Course(course_id, course_name, temp_instructor)
-            self.db.add_course(course_id, course_name, instructor_id)
+            self.db.add_course(course.course_id, course.course_name, instructor_id)
             QMessageBox.information(self, "Success", "Course added successfully!")
         except ValueError as e:
             QMessageBox.warning(self, "Validation Error", str(e))
@@ -495,6 +499,10 @@ class SchoolManagementSystem(QMainWindow):
             return
 
         try:
+            existing = self.db.get_registrations(s_id=student_id, c_id=course_id)
+            if existing:
+                QMessageBox.information(self, "Info", "Student is already registered in this course.")
+                return
             self.db.register_student(student_id, course_id)
             QMessageBox.information(self, "Success", f"{student['name']} registered for {course['course_name']} successfully!")
         except Exception as e:
@@ -584,15 +592,10 @@ class SchoolManagementSystem(QMainWindow):
                 QMessageBox.warning(self, "Invalid", "All fields are required.")
                 return
             try:
-                test_student = Student(name, int(age), email, new_id)
                 if new_id != current_id:
-                    # Update primary key directly to preserve registrations (ON UPDATE CASCADE)
-                    self.db.conn.execute("UPDATE STUDENTS SET student_id=? WHERE student_id=?", (new_id, current_id))
-                    # Update other fields
-                    self.db.update_student(new_id, name=test_student.name, age=test_student.age, email=test_student.email)
-                    self.db.conn.commit()
-                else:
-                    self.db.update_student(current_id, name=test_student.name, age=test_student.age, email=test_student.email)
+                    QMessageBox.information(self, "Note", "Changing Student ID is not supported; updating other fields only.")
+                test_student = Student(name, int(age), email, current_id)
+                self.db.update_student(current_id, name=name, age=int(age), email=email)
                 self.refresh_table()
             except ValueError as e:
                 QMessageBox.warning(self, "Validation Error", str(e))
@@ -619,14 +622,10 @@ class SchoolManagementSystem(QMainWindow):
                 return
 
             try:
-                test_instructor = Instructor(name, int(age), email, new_id)
                 if new_id != current_id:
-                    # Update PK; COURSES.i_id has ON UPDATE CASCADE
-                    self.db.conn.execute("UPDATE INSTRUCTORS SET instructor_id=? WHERE instructor_id=?", (new_id, current_id))
-                    self.db.update_instructor(new_id, name=test_instructor.name, age=test_instructor.age, email=test_instructor.email)
-                    self.db.conn.commit()
-                else:
-                    self.db.update_instructor(current_id, name=test_instructor.name, age=test_instructor.age, email=test_instructor.email)
+                    QMessageBox.information(self, "Note", "Changing Instructor ID is not supported; updating other fields only.")
+                test_instructor = Instructor(name, int(age), email, current_id)
+                self.db.update_instructor(current_id, name=name, age=int(age), email=email)
                 self.refresh_table()
                 self.update_course_and_registration()
             except ValueError as e:
@@ -681,19 +680,17 @@ class SchoolManagementSystem(QMainWindow):
             return
             
         self.search_table.setRowCount(0)
-        q = query.lower()
-        # students
-        for s in self.db.get_all_students():
-            if q in str(s.get('name','')).lower() or q in str(s.get('student_id','')).lower():
-                self._add_search_row('Student', s['name'], s['student_id'], s['email'], s['age'])
-        # instructors
-        for i in self.db.get_all_instructors():
-            if q in str(i.get('name','')).lower() or q in str(i.get('instructor_id','')).lower():
-                self._add_search_row('Instructor', i['name'], i['instructor_id'], i['email'], i['age'])
-        # courses
-        for c in self.db.get_all_courses():
-            if q in str(c.get('course_name','')).lower() or q in str(c.get('course_id','')).lower():
-                self._add_search_row('Course', c['course_name'], c['course_id'], '', '')
+        # Aggregate simple fuzzy searches across tables
+        results = []
+        for row in self.db.search('STUDENTS', name=query) + self.db.search('STUDENTS', student_id=query):
+            results.append({'type': 'Student', 'name': row['name'], 'id_number': row['student_id'], 'email': row['email'], 'age': row['age']})
+        for row in self.db.search('INSTRUCTORS', name=query) + self.db.search('INSTRUCTORS', instructor_id=query):
+            results.append({'type': 'Instructor', 'name': row['name'], 'id_number': row['instructor_id'], 'email': row['email'], 'age': row['age']})
+        for row in self.db.search('COURSES', course_name=query) + self.db.search('COURSES', course_id=query):
+            results.append({'type': 'Course', 'name': row['course_name'], 'id_number': row['course_id'], 'email': '', 'age': ''})
+
+        for result in results:
+            self._add_search_row(result['type'], result['name'], result['id_number'], result.get('email', ''), result.get('age', ''))
 
     def _add_search_row(self, typ, name, idnum, email, age):
         """Helper method to add a row to the search results table."""
@@ -791,7 +788,6 @@ class SchoolManagementSystem(QMainWindow):
                     QMessageBox.Yes | QMessageBox.No
                 )
                 if reply == QMessageBox.Yes:
-                    # Replace the underlying DB file and reopen connection
                     from pathlib import Path
                     import shutil
                     self.db.close()
