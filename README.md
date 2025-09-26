@@ -33,17 +33,26 @@ The project follows a modular, layered structure:
 ├── gui/ # PyQt5 + Tkinter GUI entry points
 
 ├── src/
+
 │ ├── models/ # Core domain models (Student, Instructor, Course, Person)
+
 │ ├── validation/ # Validation and normalization helpers
+
 │ └── persistence/ # JSON persistence logic
+
 ├── db/ # SQLite repository implementation
+
 ├── tests/ # Unit tests with pytest
+
 ├── examples/ # Example/demo scripts
+
 ├── docs/ # Documentation helpers (for Sphinx)
+
 ├── requirements.txt # Project dependencies
+
 └── README.md # Project documentation
 
-yaml
+
 Copy code
 
 ---
