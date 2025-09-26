@@ -92,7 +92,7 @@ If you encounter issues with PyQt5, you can install it manually:
 ```
 pip install PyQt5
 ```
-5. 🗃️ (Optional) Initialize the Database
+### 5. 🗃️ (Optional) Initialize the Database
 The SQLite database is automatically created on first run.
 If you want to start from scratch, simply delete the existing .db file (school.db), and rerun the database initialization script init_db.py again.
 
@@ -104,9 +104,9 @@ python gui/choose_gui.py
 ```
 You will be prompted to choose between:
 
-PyQt5 – Full-featured modern interface
+- PyQt5 – Full-featured modern interface
 
-Tkinter – Lightweight fallback GUI
+- Tkinter – Lightweight fallback GUI
 
 ### 7. 🔍 Run Unit Tests (Optional)
 You can verify that everything is working correctly by running the test suite:
@@ -167,11 +167,11 @@ pip install PyQt5
 ❗ tkinter not found:
 tkinter is part of the Python standard library. If missing, install it using your OS package manager:
 
-Ubuntu/Debian: sudo apt install python3-tk
+- Ubuntu/Debian: sudo apt install python3-tk
 
-macOS: Usually included with Python
+- macOS: Usually included with Python
 
-Windows: Included with official Python installer
+- Windows: Included with official Python installer
 
 ### 📜 License
 This project is created for educational and demonstration purposes.
