@@ -1,0 +1,6 @@
+# GUI frameworks
+PyQt5>=5.15
+
+# Testing
+pytest>=7.0
+

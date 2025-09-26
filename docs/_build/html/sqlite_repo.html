@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sqlite_repo module &mdash; School Management System (Tkinter) 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="gui package" href="gui.html" />
+    <link rel="prev" title="init_db module" href="init_db.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            School Management System (Tkinter)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">db</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="init_db.html">init_db module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">sqlite_repo module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sqlite_repo.SQLiteRepository"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.__init__"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.add_course"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.add_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.add_instructor"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.add_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.add_student"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.add_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.backup"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.backup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.close"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.delete_course"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.delete_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.delete_instructor"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.delete_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.delete_student"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.delete_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.get_course"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.get_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.get_instructor"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.get_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.get_registrations"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.get_registrations()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.get_student"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.get_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.register_student"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.register_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.search"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.unregister_student"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.unregister_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.update_course"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.update_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.update_instructor"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.update_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sqlite_repo.SQLiteRepository.update_student"><code class="docutils literal notranslate"><span class="pre">SQLiteRepository.update_student()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">gui package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.html">models package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="validation.html">validation package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">School Management System (Tkinter)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">db</a></li>
+      <li class="breadcrumb-item active">sqlite_repo module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/sqlite_repo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-sqlite_repo">
+<span id="sqlite-repo-module"></span><h1>sqlite_repo module<a class="headerlink" href="#module-sqlite_repo" title="Link to this heading"></a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">module<span class="colon">:</span></dt>
+<dd class="field-odd"><p>sqlite_repo</p>
+</dd>
+<dt class="field-even">synopsis<span class="colon">:</span></dt>
+<dd class="field-even"><p>SQLite Repository for School Management System</p>
+</dd>
+</dl>
+<p>This module provides CRUD operations for Students, Instructors, Courses,
+and Registration using a simple SQLite backend. It also exposes a small
+search helper and a backup utility.</p>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Designed to be small and straightforward for the lab. Not production-optimized.</p></li>
+<li><p>Foreign keys are enabled via PRAGMA to keep relational integrity (basic).</p></li>
+</ul>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">SQLiteRepository</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">WindowsPath('C:/Users/Tamara/Desktop/EECE435L/Tamara_Fakih_Lab_2/School_Management_System/db/school.db')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Repository class for handling School Management database operations.</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>db_path<span class="classifier">Path, optional</span></dt><dd><p>Path to the SQLite database file (defaults to ‘school.db’).</p>
+</dd>
+</dl>
+</section>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>conn<span class="classifier">sqlite3.Connection</span></dt><dd><p>Active SQLite database connection. Exposed here for simplicity (lab style).</p>
+</dd>
+</dl>
+<p>Constructor method</p>
+</section>
+<section id="id1">
+<h2>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>db_path<span class="classifier">Path, optional</span></dt><dd><p>Path to the SQLite database file (defaults to DB_PATH).</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">db_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Path</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">WindowsPath('C:/Users/Tamara/Desktop/EECE435L/Tamara_Fakih_Lab_2/School_Management_System/db/school.db')</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.__init__" title="Link to this definition"></a></dt>
+<dd><p>Constructor method</p>
+<section id="id2">
+<h3>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>db_path<span class="classifier">Path, optional</span></dt><dd><p>Path to the SQLite database file (defaults to DB_PATH).</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.add_course">
+<span class="sig-name descname"><span class="pre">add_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.add_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.add_course" title="Link to this definition"></a></dt>
+<dd><p>Insert a new course.</p>
+<section id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>course_id<span class="classifier">str</span></dt><dd><p>Course identifier.</p>
+</dd>
+<dt>course_name<span class="classifier">str</span></dt><dd><p>Name of the course.</p>
+</dd>
+<dt>i_id<span class="classifier">str, optional</span></dt><dd><p>Assigned instructor ID (optional).</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.add_instructor">
+<span class="sig-name descname"><span class="pre">add_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.add_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.add_instructor" title="Link to this definition"></a></dt>
+<dd><p>Insert a new instructor record.</p>
+<section id="id4">
+<h3>Parameters<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>instructor_id<span class="classifier">str</span></dt><dd><p>Unique instructor identifier.</p>
+</dd>
+<dt>name<span class="classifier">str</span></dt><dd><p>Instructor name.</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Instructor age.</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Instructor email.</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h3>Returns<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.add_student">
+<span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.add_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.add_student" title="Link to this definition"></a></dt>
+<dd><p>Insert a new student record.</p>
+<section id="id6">
+<h3>Parameters<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>student_id<span class="classifier">str</span></dt><dd><p>Unique student identifier.</p>
+</dd>
+<dt>name<span class="classifier">str</span></dt><dd><p>Name of the student.</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Age of the student.</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Email address of the student.</p>
+</dd>
+</dl>
+</section>
+<section id="id7">
+<h3>Returns<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>None</dt><dd><p>Nothing (side-effect: inserts row).</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.backup">
+<span class="sig-name descname"><span class="pre">backup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dest_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">PathLike</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.backup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.backup" title="Link to this definition"></a></dt>
+<dd><p>Backup the database to a new file.</p>
+<section id="id8">
+<h3>Parameters<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>dest_path<span class="classifier">str or Path</span></dt><dd><p>Destination path (can be a directory or a file; if no extension, ‘.sqlite’ is enforced).</p>
+</dd>
+</dl>
+</section>
+<section id="id9">
+<h3>Returns<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>str</dt><dd><p>Absolute path of the backup file.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.close"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.close" title="Link to this definition"></a></dt>
+<dd><p>Close the database connection.</p>
+<section id="id10">
+<h3>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.delete_course">
+<span class="sig-name descname"><span class="pre">delete_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.delete_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.delete_course" title="Link to this definition"></a></dt>
+<dd><p>Delete a course.</p>
+<section id="id11">
+<h3>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>course_id<span class="classifier">str</span></dt><dd><p>Course identifier.</p>
+</dd>
+</dl>
+</section>
+<section id="id12">
+<h3>Returns<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.delete_instructor">
+<span class="sig-name descname"><span class="pre">delete_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.delete_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.delete_instructor" title="Link to this definition"></a></dt>
+<dd><p>Delete an instructor by ID.</p>
+<section id="id13">
+<h3>Parameters<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>instructor_id<span class="classifier">str</span></dt><dd><p>Instructor identifier.</p>
+</dd>
+</dl>
+</section>
+<section id="id14">
+<h3>Returns<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.delete_student">
+<span class="sig-name descname"><span class="pre">delete_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.delete_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.delete_student" title="Link to this definition"></a></dt>
+<dd><p>Delete a student record.</p>
+<section id="id15">
+<h3>Parameters<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>student_id<span class="classifier">str</span></dt><dd><p>Student identifier.</p>
+</dd>
+</dl>
+</section>
+<section id="id16">
+<h3>Returns<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.get_course">
+<span class="sig-name descname"><span class="pre">get_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.get_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.get_course" title="Link to this definition"></a></dt>
+<dd><p>Fetch a course record.</p>
+<section id="id17">
+<h3>Parameters<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>course_id<span class="classifier">str</span></dt><dd><p>Course identifier.</p>
+</dd>
+</dl>
+</section>
+<section id="id18">
+<h3>Returns<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>dict or None</dt><dd><p>Dictionary with course data or None.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.get_instructor">
+<span class="sig-name descname"><span class="pre">get_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.get_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.get_instructor" title="Link to this definition"></a></dt>
+<dd><p>Fetch instructor record.</p>
+<section id="id19">
+<h3>Parameters<a class="headerlink" href="#id19" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>instructor_id<span class="classifier">str</span></dt><dd><p>Instructor identifier.</p>
+</dd>
+</dl>
+</section>
+<section id="id20">
+<h3>Returns<a class="headerlink" href="#id20" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>dict or None</dt><dd><p>Dictionary with instructor details or None.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.get_registrations">
+<span class="sig-name descname"><span class="pre">get_registrations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.get_registrations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.get_registrations" title="Link to this definition"></a></dt>
+<dd><p>Fetch registrations with optional filters.</p>
+<section id="id21">
+<h3>Parameters<a class="headerlink" href="#id21" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>s_id<span class="classifier">str, optional</span></dt><dd><p>Filter by student ID (optional).</p>
+</dd>
+<dt>c_id<span class="classifier">str, optional</span></dt><dd><p>Filter by course ID (optional).</p>
+</dd>
+</dl>
+</section>
+<section id="id22">
+<h3>Returns<a class="headerlink" href="#id22" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>list</dt><dd><p>List of registration records as dictionaries.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.get_student">
+<span class="sig-name descname"><span class="pre">get_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.get_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.get_student" title="Link to this definition"></a></dt>
+<dd><p>Fetch student record by ID.</p>
+<section id="id23">
+<h3>Parameters<a class="headerlink" href="#id23" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>student_id<span class="classifier">str</span></dt><dd><p>Student identifier.</p>
+</dd>
+</dl>
+</section>
+<section id="id24">
+<h3>Returns<a class="headerlink" href="#id24" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>dict or None</dt><dd><p>Dictionary with student info or None if not found.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.register_student">
+<span class="sig-name descname"><span class="pre">register_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.register_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.register_student" title="Link to this definition"></a></dt>
+<dd><p>Register a student in a course.</p>
+<section id="id25">
+<h3>Parameters<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>s_id<span class="classifier">str</span></dt><dd><p>Student ID.</p>
+</dd>
+<dt>c_id<span class="classifier">str</span></dt><dd><p>Course ID.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h3>Raises<a class="headerlink" href="#raises" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If student or course does not exist.</p>
+</dd>
+</dl>
+</section>
+<section id="id26">
+<h3>Returns<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.search" title="Link to this definition"></a></dt>
+<dd><p>Search any table by attribute filters.</p>
+<section id="id27">
+<h3>Parameters<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>table<span class="classifier">str</span></dt><dd><p>Table name (must be ‘STUDENTS’, ‘INSTRUCTORS’, ‘COURSES’, or ‘REGISTRATION’).</p>
+</dd>
+<dt><a href="#id28"><span class="problematic" id="id29">**</span></a>kwargs<span class="classifier">dict</span></dt><dd><p>Column filters (e.g., name=’John’). Uses LIKE with wildcards.</p>
+</dd>
+</dl>
+</section>
+<section id="id30">
+<h3>Returns<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>list</dt><dd><p>List of matching rows as dictionaries.</p>
+</dd>
+</dl>
+</section>
+<section id="id31">
+<h3>Raises<a class="headerlink" href="#id31" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If table name is invalid.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.unregister_student">
+<span class="sig-name descname"><span class="pre">unregister_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.unregister_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.unregister_student" title="Link to this definition"></a></dt>
+<dd><p>Unregister a student from a course.</p>
+<section id="id32">
+<h3>Parameters<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>s_id<span class="classifier">str</span></dt><dd><p>Student ID.</p>
+</dd>
+<dt>c_id<span class="classifier">str</span></dt><dd><p>Course ID.</p>
+</dd>
+</dl>
+</section>
+<section id="id33">
+<h3>Returns<a class="headerlink" href="#id33" title="Link to this heading"></a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.update_course">
+<span class="sig-name descname"><span class="pre">update_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.update_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.update_course" title="Link to this definition"></a></dt>
+<dd><p>Update existing course record.</p>
+<section id="id34">
+<h3>Parameters<a class="headerlink" href="#id34" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>course_id<span class="classifier">str</span></dt><dd><p>Course identifier.</p>
+</dd>
+<dt>course_name<span class="classifier">str, optional</span></dt><dd><p>New course name (optional).</p>
+</dd>
+<dt>i_id<span class="classifier">str, optional</span></dt><dd><p>New instructor ID (optional).</p>
+</dd>
+</dl>
+</section>
+<section id="id35">
+<h3>Returns<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.update_instructor">
+<span class="sig-name descname"><span class="pre">update_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.update_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.update_instructor" title="Link to this definition"></a></dt>
+<dd><p>Update existing instructor record.</p>
+<section id="id36">
+<h3>Parameters<a class="headerlink" href="#id36" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>instructor_id<span class="classifier">str</span></dt><dd><p>Instructor identifier.</p>
+</dd>
+<dt>name<span class="classifier">str, optional</span></dt><dd><p>Updated name (optional).</p>
+</dd>
+<dt>age<span class="classifier">int, optional</span></dt><dd><p>Updated age (optional).</p>
+</dd>
+<dt>email<span class="classifier">str, optional</span></dt><dd><p>Updated email (optional).</p>
+</dd>
+</dl>
+</section>
+<section id="id37">
+<h3>Returns<a class="headerlink" href="#id37" title="Link to this heading"></a></h3>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sqlite_repo.SQLiteRepository.update_student">
+<span class="sig-name descname"><span class="pre">update_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/sqlite_repo.html#SQLiteRepository.update_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sqlite_repo.SQLiteRepository.update_student" title="Link to this definition"></a></dt>
+<dd><p>Update existing student details.</p>
+<section id="id38">
+<h3>Parameters<a class="headerlink" href="#id38" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>student_id<span class="classifier">str</span></dt><dd><p>Student identifier.</p>
+</dd>
+<dt>name<span class="classifier">str, optional</span></dt><dd><p>Updated name (optional).</p>
+</dd>
+<dt>age<span class="classifier">int, optional</span></dt><dd><p>Updated age (optional).</p>
+</dd>
+<dt>email<span class="classifier">str, optional</span></dt><dd><p>Updated email (optional).</p>
+</dd>
+</dl>
+</section>
+<section id="id39">
+<h3>Returns<a class="headerlink" href="#id39" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>None</dt><dd><p>Nothing (updates if fields provided).</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="init_db.html" class="btn btn-neutral float-left" title="init_db module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gui.html" class="btn btn-neutral float-right" title="gui package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tamara Fakih.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

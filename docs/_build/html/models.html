@@ -1,0 +1,1157 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>models package &mdash; School Management System (Tkinter) 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="models.course module" href="models.course.html" />
+    <link rel="prev" title="gui.tkinter_app_db module" href="gui.tkinter_app_db.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            School Management System (Tkinter)
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="modules.html">db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gui.html">gui package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">models package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html">models.course module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.instructor.html">models.instructor module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.person.html">models.person module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.student.html">models.student module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-models">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#models.Course"><code class="docutils literal notranslate"><span class="pre">Course</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.__init__"><code class="docutils literal notranslate"><span class="pre">Course.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course._add_student_local"><code class="docutils literal notranslate"><span class="pre">Course._add_student_local()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course._set_instructor_local"><code class="docutils literal notranslate"><span class="pre">Course._set_instructor_local()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.add_student"><code class="docutils literal notranslate"><span class="pre">Course.add_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.course_id"><code class="docutils literal notranslate"><span class="pre">Course.course_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.course_name"><code class="docutils literal notranslate"><span class="pre">Course.course_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.enrolled_students"><code class="docutils literal notranslate"><span class="pre">Course.enrolled_students</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.from_dict"><code class="docutils literal notranslate"><span class="pre">Course.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.instructor"><code class="docutils literal notranslate"><span class="pre">Course.instructor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.remove_student"><code class="docutils literal notranslate"><span class="pre">Course.remove_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.set_instructor"><code class="docutils literal notranslate"><span class="pre">Course.set_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.to_dict"><code class="docutils literal notranslate"><span class="pre">Course.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models.Instructor"><code class="docutils literal notranslate"><span class="pre">Instructor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor.__init__"><code class="docutils literal notranslate"><span class="pre">Instructor.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor._add_course_local"><code class="docutils literal notranslate"><span class="pre">Instructor._add_course_local()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor.assign_course"><code class="docutils literal notranslate"><span class="pre">Instructor.assign_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor.assigned_courses"><code class="docutils literal notranslate"><span class="pre">Instructor.assigned_courses</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor.from_dict"><code class="docutils literal notranslate"><span class="pre">Instructor.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor.instructor_id"><code class="docutils literal notranslate"><span class="pre">Instructor.instructor_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor.list_assigned_courses"><code class="docutils literal notranslate"><span class="pre">Instructor.list_assigned_courses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor.to_dict"><code class="docutils literal notranslate"><span class="pre">Instructor.to_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models.Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person.__init__"><code class="docutils literal notranslate"><span class="pre">Person.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person._email"><code class="docutils literal notranslate"><span class="pre">Person._email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person._person_dict"><code class="docutils literal notranslate"><span class="pre">Person._person_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person.age"><code class="docutils literal notranslate"><span class="pre">Person.age</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person.email"><code class="docutils literal notranslate"><span class="pre">Person.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person.introduce"><code class="docutils literal notranslate"><span class="pre">Person.introduce()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person.name"><code class="docutils literal notranslate"><span class="pre">Person.name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models.Student"><code class="docutils literal notranslate"><span class="pre">Student</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.__init__"><code class="docutils literal notranslate"><span class="pre">Student.__init__()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student._add_course_local"><code class="docutils literal notranslate"><span class="pre">Student._add_course_local()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.from_dict"><code class="docutils literal notranslate"><span class="pre">Student.from_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.list_registered_courses"><code class="docutils literal notranslate"><span class="pre">Student.list_registered_courses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.register_course"><code class="docutils literal notranslate"><span class="pre">Student.register_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.registered_courses"><code class="docutils literal notranslate"><span class="pre">Student.registered_courses</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.student_id"><code class="docutils literal notranslate"><span class="pre">Student.student_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.to_dict"><code class="docutils literal notranslate"><span class="pre">Student.to_dict()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.unregister_course"><code class="docutils literal notranslate"><span class="pre">Student.unregister_course()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="validation.html">validation package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">School Management System (Tkinter)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">models package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="models-package">
+<h1>models package<a class="headerlink" href="#models-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="models.course.html">models.course module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.course.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.course.html#models.course.Course"><code class="docutils literal notranslate"><span class="pre">Course</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course.__init__"><code class="docutils literal notranslate"><span class="pre">Course.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course._add_student_local"><code class="docutils literal notranslate"><span class="pre">Course._add_student_local()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course._set_instructor_local"><code class="docutils literal notranslate"><span class="pre">Course._set_instructor_local()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course.add_student"><code class="docutils literal notranslate"><span class="pre">Course.add_student()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course.course_id"><code class="docutils literal notranslate"><span class="pre">Course.course_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course.course_name"><code class="docutils literal notranslate"><span class="pre">Course.course_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course.enrolled_students"><code class="docutils literal notranslate"><span class="pre">Course.enrolled_students</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course.from_dict"><code class="docutils literal notranslate"><span class="pre">Course.from_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course.instructor"><code class="docutils literal notranslate"><span class="pre">Course.instructor</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course.remove_student"><code class="docutils literal notranslate"><span class="pre">Course.remove_student()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course.set_instructor"><code class="docutils literal notranslate"><span class="pre">Course.set_instructor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.course.html#models.course.Course.to_dict"><code class="docutils literal notranslate"><span class="pre">Course.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.instructor.html">models.instructor module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.instructor.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor"><code class="docutils literal notranslate"><span class="pre">Instructor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor.__init__"><code class="docutils literal notranslate"><span class="pre">Instructor.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor._add_course_local"><code class="docutils literal notranslate"><span class="pre">Instructor._add_course_local()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor.assign_course"><code class="docutils literal notranslate"><span class="pre">Instructor.assign_course()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor.assigned_courses"><code class="docutils literal notranslate"><span class="pre">Instructor.assigned_courses</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor.from_dict"><code class="docutils literal notranslate"><span class="pre">Instructor.from_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor.instructor_id"><code class="docutils literal notranslate"><span class="pre">Instructor.instructor_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor.list_assigned_courses"><code class="docutils literal notranslate"><span class="pre">Instructor.list_assigned_courses()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor.to_dict"><code class="docutils literal notranslate"><span class="pre">Instructor.to_dict()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.person.html">models.person module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.person.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.person.html#models.person.Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.person.html#models.person.Person.__init__"><code class="docutils literal notranslate"><span class="pre">Person.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.person.html#models.person.Person._email"><code class="docutils literal notranslate"><span class="pre">Person._email</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.person.html#models.person.Person._person_dict"><code class="docutils literal notranslate"><span class="pre">Person._person_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.person.html#models.person.Person.age"><code class="docutils literal notranslate"><span class="pre">Person.age</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.person.html#models.person.Person.email"><code class="docutils literal notranslate"><span class="pre">Person.email</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.person.html#models.person.Person.introduce"><code class="docutils literal notranslate"><span class="pre">Person.introduce()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.person.html#models.person.Person.name"><code class="docutils literal notranslate"><span class="pre">Person.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.student.html">models.student module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="models.student.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.student.html#models.student.Student"><code class="docutils literal notranslate"><span class="pre">Student</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="models.student.html#models.student.Student.__init__"><code class="docutils literal notranslate"><span class="pre">Student.__init__()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.student.html#models.student.Student._add_course_local"><code class="docutils literal notranslate"><span class="pre">Student._add_course_local()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.student.html#models.student.Student.from_dict"><code class="docutils literal notranslate"><span class="pre">Student.from_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.student.html#models.student.Student.list_registered_courses"><code class="docutils literal notranslate"><span class="pre">Student.list_registered_courses()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.student.html#models.student.Student.register_course"><code class="docutils literal notranslate"><span class="pre">Student.register_course()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.student.html#models.student.Student.registered_courses"><code class="docutils literal notranslate"><span class="pre">Student.registered_courses</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.student.html#models.student.Student.student_id"><code class="docutils literal notranslate"><span class="pre">Student.student_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.student.html#models.student.Student.to_dict"><code class="docutils literal notranslate"><span class="pre">Student.to_dict()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="models.student.html#models.student.Student.unregister_course"><code class="docutils literal notranslate"><span class="pre">Student.unregister_course()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="module-models">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-models" title="Link to this heading"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">module<span class="colon">:</span></dt>
+<dd class="field-odd"><p>models.__init__</p>
+</dd>
+<dt class="field-even">synopsis<span class="colon">:</span></dt>
+<dd class="field-even"><p>Convenience re-exports for domain models (Student, Course, Instructor, Person).</p>
+</dd>
+</dl>
+<p>This package <cite>models</cite> exposes the main domain classes so other modules can import
+them directly from <cite>models</cite> instead of digging into individual files.</p>
+<section id="notes">
+<h3>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>This is just an import aggregator (aka “barrel”) for nicer imports in the app.</p></li>
+<li><p>Keeping <cite>__all__</cite> explicit so Sphinx + linters know what we intend to export.</p></li>
+<li><p>No logic here, literally just re-exports.</p></li>
+</ul>
+</section>
+<dl class="py class">
+<dt class="sig sig-object py" id="models.Course">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor" title="models.instructor.Instructor"><span class="pre">Instructor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/course.html#Course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Course model representing a single course offering.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>course_id<span class="classifier">str</span></dt><dd><p>External identifier of the course (validated, normalized).</p>
+</dd>
+<dt>course_name<span class="classifier">str</span></dt><dd><p>Human-readable course title (validated, normalized).</p>
+</dd>
+<dt>instructor<span class="classifier">Instructor, optional</span></dt><dd><p>The instructor initially assigned to this course (can be None).</p>
+</dd>
+</dl>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>course_id<span class="classifier">str</span></dt><dd><p>Normalized course ID (e.g., uppercased or trimmed).</p>
+</dd>
+<dt>course_name<span class="classifier">str</span></dt><dd><p>Normalized course name.</p>
+</dd>
+<dt>instructor<span class="classifier">Instructor or None</span></dt><dd><p>Current instructor or <code class="docutils literal notranslate"><span class="pre">None</span></code> if unassigned.</p>
+</dd>
+<dt>enrolled_students<span class="classifier">list[Student]</span></dt><dd><p>List of students registered in this course.</p>
+</dd>
+</dl>
+</section>
+<section id="id1">
+<h3>Notes<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__slots__</span></code> is used to keep the objects lightweight (and catch typos).</p></li>
+<li><p>Relationship updates call corresponding “local” helpers to avoid recursion.</p></li>
+</ul>
+<p>Constructor method</p>
+</section>
+<section id="id2">
+<h3>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>course_id<span class="classifier">str</span></dt><dd><p>Proposed course identifier (must pass <code class="docutils literal notranslate"><span class="pre">is_valid_course_id</span></code>).</p>
+</dd>
+<dt>course_name<span class="classifier">str</span></dt><dd><p>Proposed course name (must pass <code class="docutils literal notranslate"><span class="pre">is_valid_course_name</span></code>).</p>
+</dd>
+<dt>instructor<span class="classifier">Instructor, optional</span></dt><dd><p>Optional initial instructor to attach.</p>
+</dd>
+</dl>
+</section>
+<section id="raises">
+<h3>Raises<a class="headerlink" href="#raises" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If either <code class="docutils literal notranslate"><span class="pre">course_id</span></code> or <code class="docutils literal notranslate"><span class="pre">course_name</span></code> fails validation.</p>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h3>Notes<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Normalization is applied via <code class="docutils literal notranslate"><span class="pre">norm_id</span></code> and <code class="docutils literal notranslate"><span class="pre">norm_name</span></code>.</p></li>
+<li><p>If an instructor is provided, the bidirectional link is established.</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Course.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor" title="models.instructor.Instructor"><span class="pre">Instructor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/course.html#Course.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course.__init__" title="Link to this definition"></a></dt>
+<dd><p>Constructor method</p>
+<section id="id4">
+<h4>Parameters<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>course_id<span class="classifier">str</span></dt><dd><p>Proposed course identifier (must pass <code class="docutils literal notranslate"><span class="pre">is_valid_course_id</span></code>).</p>
+</dd>
+<dt>course_name<span class="classifier">str</span></dt><dd><p>Proposed course name (must pass <code class="docutils literal notranslate"><span class="pre">is_valid_course_name</span></code>).</p>
+</dd>
+<dt>instructor<span class="classifier">Instructor, optional</span></dt><dd><p>Optional initial instructor to attach.</p>
+</dd>
+</dl>
+</section>
+<section id="id5">
+<h4>Raises<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If either <code class="docutils literal notranslate"><span class="pre">course_id</span></code> or <code class="docutils literal notranslate"><span class="pre">course_name</span></code> fails validation.</p>
+</dd>
+</dl>
+</section>
+<section id="id6">
+<h4>Notes<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Normalization is applied via <code class="docutils literal notranslate"><span class="pre">norm_id</span></code> and <code class="docutils literal notranslate"><span class="pre">norm_name</span></code>.</p></li>
+<li><p>If an instructor is provided, the bidirectional link is established.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Course._add_student_local">
+<span class="sig-name descname"><span class="pre">_add_student_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.student.html#models.student.Student" title="models.student.Student"><span class="pre">Student</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/course.html#Course._add_student_local"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course._add_student_local" title="Link to this definition"></a></dt>
+<dd><p>Internal helper to append a student locally (no back-link).</p>
+<section id="id7">
+<h4>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>student<span class="classifier">Student</span></dt><dd><p>Student object to add to <code class="docutils literal notranslate"><span class="pre">enrolled_students</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="returns">
+<h4>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+<section id="id8">
+<h4>Notes<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>This does not touch <code class="docutils literal notranslate"><span class="pre">student.registered_courses</span></code> on purpose.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">add_student</span></code> for public API that syncs both sides.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Course._set_instructor_local">
+<span class="sig-name descname"><span class="pre">_set_instructor_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor" title="models.instructor.Instructor"><span class="pre">Instructor</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/course.html#Course._set_instructor_local"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course._set_instructor_local" title="Link to this definition"></a></dt>
+<dd><p>Internal helper to set the instructor locally (no back-link).</p>
+<section id="id9">
+<h4>Parameters<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>instructor<span class="classifier">Instructor</span></dt><dd><p>Instructor to assign locally.</p>
+</dd>
+</dl>
+</section>
+<section id="id10">
+<h4>Returns<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+<section id="id11">
+<h4>Notes<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">set_instructor</span></code> for the full bidirectional update.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Course.add_student">
+<span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.student.html#models.student.Student" title="models.student.Student"><span class="pre">Student</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/course.html#Course.add_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course.add_student" title="Link to this definition"></a></dt>
+<dd><p>Public API to enroll a student and sync the inverse relation.</p>
+<section id="id12">
+<h4>Parameters<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>student<span class="classifier">Student</span></dt><dd><p>Student to enroll in this course.</p>
+</dd>
+</dl>
+</section>
+<section id="id13">
+<h4>Returns<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+<section id="id14">
+<h4>Notes<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Prevents duplicates.</p></li>
+<li><p>Ensures the student’s <code class="docutils literal notranslate"><span class="pre">registered_courses</span></code> includes this course.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Course.course_id">
+<span class="sig-name descname"><span class="pre">course_id</span></span><a class="headerlink" href="#models.Course.course_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Course.course_name">
+<span class="sig-name descname"><span class="pre">course_name</span></span><a class="headerlink" href="#models.Course.course_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Course.enrolled_students">
+<span class="sig-name descname"><span class="pre">enrolled_students</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="models.student.html#models.student.Student" title="models.student.Student"><span class="pre">Student</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#models.Course.enrolled_students" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Course.from_dict">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.course.html#models.course.Course" title="models.course.Course"><span class="pre">Course</span></a></span></span><a class="reference internal" href="_modules/models/course.html#Course.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Construct a course from a dictionary (instructor is not attached here).</p>
+<section id="id15">
+<h4>Parameters<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>d<span class="classifier">dict</span></dt><dd><p>Dictionary with at least <code class="docutils literal notranslate"><span class="pre">course_id</span></code> and <code class="docutils literal notranslate"><span class="pre">course_name</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id16">
+<h4>Returns<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Course</dt><dd><p>New <code class="docutils literal notranslate"><span class="pre">Course</span></code> instance with no instructor assigned yet.</p>
+</dd>
+</dl>
+</section>
+<section id="id17">
+<h4>Notes<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>The instructor is intentionally set to <code class="docutils literal notranslate"><span class="pre">None</span></code>; attach it later if needed.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Course.instructor">
+<span class="sig-name descname"><span class="pre">instructor</span></span><a class="headerlink" href="#models.Course.instructor" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Course.remove_student">
+<span class="sig-name descname"><span class="pre">remove_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.student.html#models.student.Student" title="models.student.Student"><span class="pre">Student</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/course.html#Course.remove_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course.remove_student" title="Link to this definition"></a></dt>
+<dd><p>Remove a student and clean up the inverse link if present.</p>
+<section id="id18">
+<h4>Parameters<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>student<span class="classifier">Student</span></dt><dd><p>Student to remove from enrollment.</p>
+</dd>
+</dl>
+</section>
+<section id="id19">
+<h4>Returns<a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Course.set_instructor">
+<span class="sig-name descname"><span class="pre">set_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor" title="models.instructor.Instructor"><span class="pre">Instructor</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/course.html#Course.set_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course.set_instructor" title="Link to this definition"></a></dt>
+<dd><p>Assign or clear the instructor and keep both sides in sync.</p>
+<section id="id20">
+<h4>Parameters<a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>instructor<span class="classifier">Instructor or None</span></dt><dd><p>New instructor to assign or <code class="docutils literal notranslate"><span class="pre">None</span></code> to unassign.</p>
+</dd>
+</dl>
+</section>
+<section id="id21">
+<h4>Returns<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+<section id="id22">
+<h4>Notes<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>If setting to None, the old instructor (if any) loses this course.</p></li>
+<li><p>If assigning a new instructor, the previous one is updated accordingly.</p></li>
+<li><p>Early-return if the instructor is unchanged.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Course.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/models/course.html#Course.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Serialize the course to a plain dictionary.</p>
+<section id="id23">
+<h4>Returns<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict</dt><dd><p>Dict with keys: <code class="docutils literal notranslate"><span class="pre">course_id</span></code>, <code class="docutils literal notranslate"><span class="pre">course_name</span></code>, <code class="docutils literal notranslate"><span class="pre">instructor_id</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">enrolled_student_ids</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id24">
+<h4>Notes<a class="headerlink" href="#id24" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>IDs only for related objects (keeps payload small).</p></li>
+</ul>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.Instructor">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/instructor.html#Instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Instructor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="models.person.html#models.person.Person" title="models.person.Person"><code class="xref py py-class docutils literal notranslate"><span class="pre">Person</span></code></a></p>
+<p>Instructor model; inherits name/age/email from <code class="docutils literal notranslate"><span class="pre">Person</span></code> and adds an ID
+plus the list of assigned courses.</p>
+<section id="id25">
+<h3>Parameters<a class="headerlink" href="#id25" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>Instructor’s name (validated in Person).</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Instructor’s age (validated in Person).</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Instructor’s email (validated in Person).</p>
+</dd>
+<dt>instructor_id<span class="classifier">str</span></dt><dd><p>External identifier for the instructor (validated, normalized).</p>
+</dd>
+</dl>
+</section>
+<section id="id26">
+<h3>Attributes<a class="headerlink" href="#id26" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>instructor_id<span class="classifier">str</span></dt><dd><p>Normalized instructor ID (e.g., trimmed/uppercased by <code class="docutils literal notranslate"><span class="pre">norm_id</span></code>).</p>
+</dd>
+<dt>assigned_courses<span class="classifier">list[Course]</span></dt><dd><p>Courses currently assigned to this instructor.</p>
+</dd>
+</dl>
+</section>
+<section id="id27">
+<h3>Notes<a class="headerlink" href="#id27" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Keep list maintenance simple; we call “local” helpers to avoid loops.</p></li>
+</ul>
+<p>Constructor method</p>
+</section>
+<section id="id28">
+<h3>Parameters<a class="headerlink" href="#id28" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>Instructor’s name.</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Instructor’s age.</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Instructor’s email.</p>
+</dd>
+<dt>instructor_id<span class="classifier">str</span></dt><dd><p>Proposed ID (must pass <code class="docutils literal notranslate"><span class="pre">is_valid_instructor_id</span></code>).</p>
+</dd>
+</dl>
+</section>
+<section id="id29">
+<h3>Raises<a class="headerlink" href="#id29" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">instructor_id</span></code> is invalid.</p>
+</dd>
+</dl>
+</section>
+<section id="id30">
+<h3>Notes<a class="headerlink" href="#id30" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>We call <code class="docutils literal notranslate"><span class="pre">super().__init__</span></code> first to reuse Person validation.</p></li>
+<li><p>Then validate + normalize the instructor ID.</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Instructor.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/instructor.html#Instructor.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Instructor.__init__" title="Link to this definition"></a></dt>
+<dd><p>Constructor method</p>
+<section id="id31">
+<h4>Parameters<a class="headerlink" href="#id31" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>Instructor’s name.</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Instructor’s age.</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Instructor’s email.</p>
+</dd>
+<dt>instructor_id<span class="classifier">str</span></dt><dd><p>Proposed ID (must pass <code class="docutils literal notranslate"><span class="pre">is_valid_instructor_id</span></code>).</p>
+</dd>
+</dl>
+</section>
+<section id="id32">
+<h4>Raises<a class="headerlink" href="#id32" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">instructor_id</span></code> is invalid.</p>
+</dd>
+</dl>
+</section>
+<section id="id33">
+<h4>Notes<a class="headerlink" href="#id33" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>We call <code class="docutils literal notranslate"><span class="pre">super().__init__</span></code> first to reuse Person validation.</p></li>
+<li><p>Then validate + normalize the instructor ID.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Instructor._add_course_local">
+<span class="sig-name descname"><span class="pre">_add_course_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#models.Course" title="models.Course"><span class="pre">Course</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/instructor.html#Instructor._add_course_local"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Instructor._add_course_local" title="Link to this definition"></a></dt>
+<dd><p>Internal helper to append a course locally (no back-link).</p>
+<section id="id34">
+<h4>Parameters<a class="headerlink" href="#id34" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>course<span class="classifier">Course</span></dt><dd><p>Course to add to <code class="docutils literal notranslate"><span class="pre">assigned_courses</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id35">
+<h4>Returns<a class="headerlink" href="#id35" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+<section id="id36">
+<h4>Notes<a class="headerlink" href="#id36" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">assign_course</span></code> for the public API that syncs both sides.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Instructor.assign_course">
+<span class="sig-name descname"><span class="pre">assign_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#models.Course" title="models.Course"><span class="pre">Course</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/instructor.html#Instructor.assign_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Instructor.assign_course" title="Link to this definition"></a></dt>
+<dd><p>Assign a course to this instructor and sync the inverse relation.</p>
+<section id="id37">
+<h4>Parameters<a class="headerlink" href="#id37" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>course<span class="classifier">Course</span></dt><dd><p>Course to assign (ignored if falsy).</p>
+</dd>
+</dl>
+</section>
+<section id="id38">
+<h4>Returns<a class="headerlink" href="#id38" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+<section id="id39">
+<h4>Notes<a class="headerlink" href="#id39" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Prevents duplicates in <code class="docutils literal notranslate"><span class="pre">assigned_courses</span></code>.</p></li>
+<li><p>Ensures <code class="docutils literal notranslate"><span class="pre">course.instructor</span></code> points to <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></li>
+<li><p>Cleans up the old instructor if the course was previously assigned.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Instructor.assigned_courses">
+<span class="sig-name descname"><span class="pre">assigned_courses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Course'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#models.Instructor.assigned_courses" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Instructor.from_dict">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.instructor.html#models.instructor.Instructor" title="models.instructor.Instructor"><span class="pre">Instructor</span></a></span></span><a class="reference internal" href="_modules/models/instructor.html#Instructor.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Instructor.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Construct an Instructor from a dictionary.</p>
+<section id="id40">
+<h4>Parameters<a class="headerlink" href="#id40" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>d<span class="classifier">dict</span></dt><dd><p>Dictionary containing at least <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code>, and <code class="docutils literal notranslate"><span class="pre">instructor_id</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id41">
+<h4>Returns<a class="headerlink" href="#id41" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Instructor</dt><dd><p>New <code class="docutils literal notranslate"><span class="pre">Instructor</span></code> instance (courses are not attached here).</p>
+</dd>
+</dl>
+</section>
+<section id="id42">
+<h4>Notes<a class="headerlink" href="#id42" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Courses are intentionally not wired here; attach them later as needed.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Instructor.instructor_id">
+<span class="sig-name descname"><span class="pre">instructor_id</span></span><a class="headerlink" href="#models.Instructor.instructor_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Instructor.list_assigned_courses">
+<span class="sig-name descname"><span class="pre">list_assigned_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/models/instructor.html#Instructor.list_assigned_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Instructor.list_assigned_courses" title="Link to this definition"></a></dt>
+<dd><p>Return a human-readable string of assigned course IDs (also prints it).</p>
+<section id="id43">
+<h4>Returns<a class="headerlink" href="#id43" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>str</dt><dd><p>Message of the form:
+<code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">instructor</span> <span class="pre">&lt;name&gt;</span> <span class="pre">of</span> <span class="pre">id</span> <span class="pre">&lt;instructor_id&gt;</span> <span class="pre">is</span> <span class="pre">assigned</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">following</span> <span class="pre">courses:</span> <span class="pre">&lt;ids&gt;&quot;</span></code></p>
+</dd>
+</dl>
+</section>
+<section id="id44">
+<h4>Notes<a class="headerlink" href="#id44" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Also prints the same message for convenience during manual testing.</p></li>
+<li><p>If there are no courses, returns “no courses”.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Instructor.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/models/instructor.html#Instructor.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Instructor.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Serialize the instructor to a plain dictionary.</p>
+<section id="id45">
+<h4>Returns<a class="headerlink" href="#id45" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict</dt><dd><p>Dict with person fields + <code class="docutils literal notranslate"><span class="pre">instructor_id</span></code> and <code class="docutils literal notranslate"><span class="pre">assigned_course_ids</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id46">
+<h4>Notes<a class="headerlink" href="#id46" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Related objects are represented by their IDs only.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.Person">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/person.html#Person"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Person" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Simple person record with name, age, and email (normalized).</p>
+<section id="id47">
+<h3>Parameters<a class="headerlink" href="#id47" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>Person’s name (validated, then normalized).</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Non-negative integer age.</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Email address (validated, then normalized).</p>
+</dd>
+</dl>
+</section>
+<section id="id48">
+<h3>Attributes<a class="headerlink" href="#id48" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>Normalized person name.</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Integer age (stored as int explicitly).</p>
+</dd>
+<dt>_email<span class="classifier">str</span></dt><dd><p>Backing field for the public <code class="docutils literal notranslate"><span class="pre">email</span></code> property.</p>
+</dd>
+</dl>
+</section>
+<section id="id49">
+<h3>Notes<a class="headerlink" href="#id49" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__slots__</span></code> used to save memory and avoid accidental attributes.</p></li>
+<li><p>Email is exposed via a property so we can re-validate on update.</p></li>
+</ul>
+<p>Constructor method</p>
+</section>
+<section id="id50">
+<h3>Parameters<a class="headerlink" href="#id50" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>Proposed name; must pass <code class="docutils literal notranslate"><span class="pre">is_valid_person_name</span></code>.</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Proposed age; must pass <code class="docutils literal notranslate"><span class="pre">is_non_negative_int</span></code>.</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Proposed email; must pass <code class="docutils literal notranslate"><span class="pre">is_valid_email</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id51">
+<h3>Raises<a class="headerlink" href="#id51" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If any of the inputs fail validation.</p>
+</dd>
+</dl>
+</section>
+<section id="id52">
+<h3>Notes<a class="headerlink" href="#id52" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>We normalize strings so we don’t store messy variants (spacing/case).</p></li>
+<li><p>Age is cast to int just in case a numeric-like value sneaks in.</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Person.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/person.html#Person.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Person.__init__" title="Link to this definition"></a></dt>
+<dd><p>Constructor method</p>
+<section id="id53">
+<h4>Parameters<a class="headerlink" href="#id53" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>Proposed name; must pass <code class="docutils literal notranslate"><span class="pre">is_valid_person_name</span></code>.</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Proposed age; must pass <code class="docutils literal notranslate"><span class="pre">is_non_negative_int</span></code>.</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Proposed email; must pass <code class="docutils literal notranslate"><span class="pre">is_valid_email</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id54">
+<h4>Raises<a class="headerlink" href="#id54" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If any of the inputs fail validation.</p>
+</dd>
+</dl>
+</section>
+<section id="id55">
+<h4>Notes<a class="headerlink" href="#id55" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>We normalize strings so we don’t store messy variants (spacing/case).</p></li>
+<li><p>Age is cast to int just in case a numeric-like value sneaks in.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Person._email">
+<span class="sig-name descname"><span class="pre">_email</span></span><a class="headerlink" href="#models.Person._email" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Person._person_dict">
+<span class="sig-name descname"><span class="pre">_person_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/models/person.html#Person._person_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Person._person_dict" title="Link to this definition"></a></dt>
+<dd><p>Serialize common person fields to a dict.</p>
+<section id="id56">
+<h4>Returns<a class="headerlink" href="#id56" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict</dt><dd><p>Dictionary with keys <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, and <code class="docutils literal notranslate"><span class="pre">email</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id57">
+<h4>Notes<a class="headerlink" href="#id57" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Private helper because higher-level models usually extend this.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Person.age">
+<span class="sig-name descname"><span class="pre">age</span></span><a class="headerlink" href="#models.Person.age" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="models.Person.email">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">email</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#models.Person.email" title="Link to this definition"></a></dt>
+<dd><p>Email getter.</p>
+<section id="id58">
+<h4>Returns<a class="headerlink" href="#id58" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>str</dt><dd><p>The (normalized) email string.</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Person.introduce">
+<span class="sig-name descname"><span class="pre">introduce</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/models/person.html#Person.introduce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Person.introduce" title="Link to this definition"></a></dt>
+<dd><p>Return and print a small intro string (lab-style helper).</p>
+<section id="id59">
+<h4>Returns<a class="headerlink" href="#id59" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>str</dt><dd><p>A message of the form:
+<code class="docutils literal notranslate"><span class="pre">&quot;Hi,</span> <span class="pre">I'm</span> <span class="pre">&lt;name&gt;.</span> <span class="pre">I</span> <span class="pre">am</span> <span class="pre">&lt;age&gt;</span> <span class="pre">years</span> <span class="pre">old.</span> <span class="pre">Please</span> <span class="pre">find</span> <span class="pre">attached</span> <span class="pre">my</span> <span class="pre">email</span> <span class="pre">address</span> <span class="pre">if</span> <span class="pre">you</span> <span class="pre">wish</span> <span class="pre">to</span> <span class="pre">contact</span> <span class="pre">me:</span> <span class="pre">&lt;email&gt;&quot;</span></code></p>
+</dd>
+</dl>
+</section>
+<section id="id60">
+<h4>Notes<a class="headerlink" href="#id60" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Also prints to stdout because it’s handy for quick manual checks.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Person.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#models.Person.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.Student">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">student_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/student.html#Student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Student" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="models.person.html#models.person.Person" title="models.person.Person"><code class="xref py py-class docutils literal notranslate"><span class="pre">Person</span></code></a></p>
+<p>Student model; inherits name/age/email from <code class="docutils literal notranslate"><span class="pre">Person</span></code> and adds a student ID
+plus the list of registered courses.</p>
+<section id="id61">
+<h3>Parameters<a class="headerlink" href="#id61" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>Student’s name (validated in Person).</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Student’s age (validated in Person).</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Student’s email (validated in Person).</p>
+</dd>
+<dt>student_id<span class="classifier">str</span></dt><dd><p>External identifier for the student (validated, normalized).</p>
+</dd>
+</dl>
+</section>
+<section id="id62">
+<h3>Attributes<a class="headerlink" href="#id62" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>student_id<span class="classifier">str</span></dt><dd><p>Normalized student ID (via <code class="docutils literal notranslate"><span class="pre">norm_id</span></code>).</p>
+</dd>
+<dt>registered_courses<span class="classifier">list[Course]</span></dt><dd><p>Courses this student is currently registered in.</p>
+</dd>
+</dl>
+</section>
+<section id="id63">
+<h3>Notes<a class="headerlink" href="#id63" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Relationship maintenance tries to be simple and explicit.</p></li>
+</ul>
+<p>Constructor method</p>
+</section>
+<section id="id64">
+<h3>Parameters<a class="headerlink" href="#id64" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>Student’s name.</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Student’s age.</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Student’s email.</p>
+</dd>
+<dt>student_id<span class="classifier">str</span></dt><dd><p>Proposed ID (must pass <code class="docutils literal notranslate"><span class="pre">is_valid_student_id</span></code>).</p>
+</dd>
+</dl>
+</section>
+<section id="id65">
+<h3>Raises<a class="headerlink" href="#id65" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">student_id</span></code> is invalid.</p>
+</dd>
+</dl>
+</section>
+<section id="id66">
+<h3>Notes<a class="headerlink" href="#id66" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Calls <code class="docutils literal notranslate"><span class="pre">super().__init__</span></code> first to reuse Person validation.</p></li>
+<li><p>Then validates and normalizes the student ID.</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Student.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">student_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/student.html#Student.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Student.__init__" title="Link to this definition"></a></dt>
+<dd><p>Constructor method</p>
+<section id="id67">
+<h4>Parameters<a class="headerlink" href="#id67" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>name<span class="classifier">str</span></dt><dd><p>Student’s name.</p>
+</dd>
+<dt>age<span class="classifier">int</span></dt><dd><p>Student’s age.</p>
+</dd>
+<dt>email<span class="classifier">str</span></dt><dd><p>Student’s email.</p>
+</dd>
+<dt>student_id<span class="classifier">str</span></dt><dd><p>Proposed ID (must pass <code class="docutils literal notranslate"><span class="pre">is_valid_student_id</span></code>).</p>
+</dd>
+</dl>
+</section>
+<section id="id68">
+<h4>Raises<a class="headerlink" href="#id68" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>ValueError</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">student_id</span></code> is invalid.</p>
+</dd>
+</dl>
+</section>
+<section id="id69">
+<h4>Notes<a class="headerlink" href="#id69" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Calls <code class="docutils literal notranslate"><span class="pre">super().__init__</span></code> first to reuse Person validation.</p></li>
+<li><p>Then validates and normalizes the student ID.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Student._add_course_local">
+<span class="sig-name descname"><span class="pre">_add_course_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#models.Course" title="models.Course"><span class="pre">Course</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/student.html#Student._add_course_local"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Student._add_course_local" title="Link to this definition"></a></dt>
+<dd><p>Internal helper to append a course locally (no back-link).</p>
+<section id="id70">
+<h4>Parameters<a class="headerlink" href="#id70" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>course<span class="classifier">Course</span></dt><dd><p>Course to add to <code class="docutils literal notranslate"><span class="pre">registered_courses</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id71">
+<h4>Returns<a class="headerlink" href="#id71" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+<section id="id72">
+<h4>Notes<a class="headerlink" href="#id72" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">register_course</span></code> for the public API that syncs both sides.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Student.from_dict">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="models.student.html#models.student.Student" title="models.student.Student"><span class="pre">Student</span></a></span></span><a class="reference internal" href="_modules/models/student.html#Student.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Student.from_dict" title="Link to this definition"></a></dt>
+<dd><p>Construct a Student from a dictionary.</p>
+<section id="id73">
+<h4>Parameters<a class="headerlink" href="#id73" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>d<span class="classifier">dict</span></dt><dd><p>Dictionary containing at least <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, <code class="docutils literal notranslate"><span class="pre">email</span></code>, and <code class="docutils literal notranslate"><span class="pre">student_id</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id74">
+<h4>Returns<a class="headerlink" href="#id74" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>Student</dt><dd><p>New <code class="docutils literal notranslate"><span class="pre">Student</span></code> instance (courses are not attached here).</p>
+</dd>
+</dl>
+</section>
+<section id="id75">
+<h4>Notes<a class="headerlink" href="#id75" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Courses are intentionally not wired here; attach them later if needed.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Student.list_registered_courses">
+<span class="sig-name descname"><span class="pre">list_registered_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/models/student.html#Student.list_registered_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Student.list_registered_courses" title="Link to this definition"></a></dt>
+<dd><p>Return a human-readable string of registered course IDs (also prints it).</p>
+<section id="id76">
+<h4>Returns<a class="headerlink" href="#id76" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>str</dt><dd><p>Message of the form:
+<code class="docutils literal notranslate"><span class="pre">&quot;The</span> <span class="pre">student</span> <span class="pre">&lt;name&gt;</span> <span class="pre">of</span> <span class="pre">id</span> <span class="pre">&lt;student_id&gt;</span> <span class="pre">is</span> <span class="pre">registered</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">following</span> <span class="pre">courses:</span> <span class="pre">&lt;ids&gt;&quot;</span></code></p>
+</dd>
+</dl>
+</section>
+<section id="id77">
+<h4>Notes<a class="headerlink" href="#id77" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Also prints the same message for quick manual checking.</p></li>
+<li><p>If none, shows “no courses”.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Student.register_course">
+<span class="sig-name descname"><span class="pre">register_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#models.Course" title="models.Course"><span class="pre">Course</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/student.html#Student.register_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Student.register_course" title="Link to this definition"></a></dt>
+<dd><p>Register this student into a course and sync the inverse relation.</p>
+<section id="id78">
+<h4>Parameters<a class="headerlink" href="#id78" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>course<span class="classifier">Course</span></dt><dd><p>Course to register in (ignored if falsy).</p>
+</dd>
+</dl>
+</section>
+<section id="id79">
+<h4>Returns<a class="headerlink" href="#id79" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+<section id="id80">
+<h4>Notes<a class="headerlink" href="#id80" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Prevents duplicates in <code class="docutils literal notranslate"><span class="pre">registered_courses</span></code>.</p></li>
+<li><p>Ensures <code class="docutils literal notranslate"><span class="pre">course.enrolled_students</span></code> includes this student.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Student.registered_courses">
+<span class="sig-name descname"><span class="pre">registered_courses</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Course'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#models.Student.registered_courses" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Student.student_id">
+<span class="sig-name descname"><span class="pre">student_id</span></span><a class="headerlink" href="#models.Student.student_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Student.to_dict">
+<span class="sig-name descname"><span class="pre">to_dict</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/models/student.html#Student.to_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Student.to_dict" title="Link to this definition"></a></dt>
+<dd><p>Serialize the student to a plain dictionary.</p>
+<section id="id81">
+<h4>Returns<a class="headerlink" href="#id81" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>dict</dt><dd><p>Dict with person fields + <code class="docutils literal notranslate"><span class="pre">student_id</span></code> and <code class="docutils literal notranslate"><span class="pre">registered_course_ids</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="id82">
+<h4>Notes<a class="headerlink" href="#id82" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Related objects are represented by their IDs only.</p></li>
+</ul>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Student.unregister_course">
+<span class="sig-name descname"><span class="pre">unregister_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#models.Course" title="models.Course"><span class="pre">Course</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/models/student.html#Student.unregister_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Student.unregister_course" title="Link to this definition"></a></dt>
+<dd><p>Unregister this student from a course and clean up the inverse link.</p>
+<section id="id83">
+<h4>Parameters<a class="headerlink" href="#id83" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>course<span class="classifier">Course</span></dt><dd><p>Course to remove.</p>
+</dd>
+</dl>
+</section>
+<section id="id84">
+<h4>Returns<a class="headerlink" href="#id84" title="Link to this heading"></a></h4>
+<p>None</p>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="gui.tkinter_app_db.html" class="btn btn-neutral float-left" title="gui.tkinter_app_db module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="models.course.html" class="btn btn-neutral float-right" title="models.course module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tamara Fakih.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
