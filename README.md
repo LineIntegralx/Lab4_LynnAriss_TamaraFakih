@@ -30,16 +30,16 @@ The system demonstrates **full-stack desktop application development** in Python
 
 The project follows a modular, layered structure:
 
-├── gui/ # Tkinter GUI application
-├── src/
-│ ├── models/ # Student, Instructor, Course, Person
-│ ├── validation/ # Validators & normalizers
-│ └── persistence/ # JSON store (save/load)
-├── db/ # SQLite repository
-├── tests/ # Pytest unit tests
-├── examples/ # Demo scripts
-├── docs/ # Documentation helpers
-└── requirements.txt # Dependencies
+- `gui/` — Tkinter GUI application  
+- `src/models/` — Student, Instructor, Course, Person  
+- `src/validation/` — Validators & normalizers  
+- `src/persistence/` — JSON store (save/load)  
+- `db/` — SQLite repository  
+- `tests/` — Pytest unit tests  
+- `examples/` — Demo scripts  
+- `docs/` — Documentation helpers  
+- `requirements.txt` — Dependencies
+
 
 
 Copy code
