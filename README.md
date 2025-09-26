@@ -100,7 +100,7 @@ If you want to start from scratch, simply delete the existing .db file (school.d
 Launch the application using the GUI chooser script:
 
 ```
-python gui/choose_gui.py
+python src/gui/choose_gui.py
 ```
 You will be prompted to choose between:
 
@@ -146,7 +146,7 @@ Tests (tests/) – Pytest-based tests verifying relationships, serialization, an
 To run the app:
 
 ```
-python gui/choose_gui.py
+python src/gui/choose_gui.py
 ```
 
 To run tests:
