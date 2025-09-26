@@ -192,7 +192,7 @@ Submit a pull request 🚀
 ### 👩‍💻 Author
 Developed by Tamara Fakih and Lynn Ariss – a demonstration project for Python desktop app development with databases and GUI frameworks.
 
-⭐ Acknowledgements
+### ⭐ Acknowledgements
 Built with Python
 
 GUI powered by PyQt5 and Tkinter
@@ -201,6 +201,3 @@ Database layer with SQLite
 
 Documentation generated with Sphinx
 
-markdown
-```markdown
-![App Screenshot](images/screenshot.png)
