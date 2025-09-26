@@ -31,6 +31,7 @@ The system demonstrates **full-stack desktop application development** in Python
 The project follows a modular, layered structure:
 
 ├── gui/ # PyQt5 + Tkinter GUI entry points
+
 ├── src/
 │ ├── models/ # Core domain models (Student, Instructor, Course, Person)
 │ ├── validation/ # Validation and normalization helpers
