@@ -30,27 +30,16 @@ The system demonstrates **full-stack desktop application development** in Python
 
 The project follows a modular, layered structure:
 
-├── gui/ # PyQt5 + Tkinter GUI entry points
-
+├── gui/ # Tkinter GUI application
 ├── src/
-
-│ ├── models/ # Core domain models (Student, Instructor, Course, Person)
-
-│ ├── validation/ # Validation and normalization helpers
-
-│ └── persistence/ # JSON persistence logic
-
-├── db/ # SQLite repository implementation
-
-├── tests/ # Unit tests with pytest
-
-├── examples/ # Example/demo scripts
-
-├── docs/ # Documentation helpers (for Sphinx)
-
-├── requirements.txt # Project dependencies
-
-└── README.md # Project documentation
+│ ├── models/ # Student, Instructor, Course, Person
+│ ├── validation/ # Validators & normalizers
+│ └── persistence/ # JSON store (save/load)
+├── db/ # SQLite repository
+├── tests/ # Pytest unit tests
+├── examples/ # Demo scripts
+├── docs/ # Documentation helpers
+└── requirements.txt # Dependencies
 
 
 Copy code
