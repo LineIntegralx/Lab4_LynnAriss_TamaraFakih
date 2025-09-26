@@ -72,7 +72,7 @@ It’s best practice to create a virtual environment to isolate project dependen
 Windows (PowerShell):
 ```
 python -m venv venv
-venv\Scripts\
+.\venv\Scripts\Activate.ps1
 ```
 macOS / Linux:
 
