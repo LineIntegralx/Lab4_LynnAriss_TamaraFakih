@@ -41,9 +41,6 @@ The project follows a modular, layered structure:
 - `requirements.txt` — Dependencies
 
 
-
-Copy code
-
 ---
 
 ## 🚀 Getting Started
@@ -57,22 +54,22 @@ Check your Python version:
 
 ```bash
 python --version
-exit
+```
+
 
 
 
 
 ### 2. 📥 Clone the Repository
 Use git to clone the project locally:
-
-bash
-Copy code
+```
 git clone https://github.com/<your-username>/<your-repo-name>.git
+```
 Then navigate into the project directory:
-
-bash
-Copy code
+```
 cd <your-repo-name>
+```
+
 3. 🧪 Create a Virtual Environment (Recommended)
 It’s best practice to create a virtual environment to isolate project dependencies.
 
