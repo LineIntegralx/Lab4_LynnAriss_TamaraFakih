@@ -2,7 +2,7 @@
 
 ## 🧭 Project Overview
 
-The **School Management System** is a desktop application built with **Python** and **PyQt5/Tkinter** that provides an intuitive interface for managing academic data in a school or university setting.  
+The **School Management System** is a desktop application built with **Python** and **PyQt5/Tkinter** that provides an intuitive interface for managing academic data in a school or university setting. Our interface was specifically designed for the American University of Beirut (AUB).
 It allows administrators, teachers, or staff to efficiently **create, manage, and organize** information about **students, instructors, and courses** — all in one place, with an easy-to-use graphical user interface.
 
 The system demonstrates **full-stack desktop application development** in Python, combining:
