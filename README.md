@@ -30,14 +30,14 @@ The system demonstrates **full-stack desktop application development** in Python
 
 The project follows a modular, layered structure:
 
-- `gui/` — Tkinter GUI application  
+- `data/` — Some visuals needed for the GUI
+- `db/` — SQLite repository  and db initialization script
+- `docs/` — Full Sphinx documentation
+- `src/gui/` — GUI application  (choosing, Tkinter, and PyQt)
 - `src/models/` — Student, Instructor, Course, Person  
 - `src/validation/` — Validators & normalizers  
 - `src/persistence/` — JSON store (save/load)  
-- `db/` — SQLite repository  
 - `tests/` — Pytest unit tests  
-- `examples/` — Demo scripts  
-- `docs/` — Documentation helpers  
 - `requirements.txt` — Dependencies
 
 
@@ -128,19 +128,6 @@ Once the application is running, you can:
 💾 Export and import data as JSON or CSV
 
 📤 Backup and restore the entire database with one click
-
-### 🧪 Project Structure Explanation
-GUI Layer (src/gui/) – Contains the main graphical interface using PyQt5 and a launcher using Tkinter.
-
-Models (src/models/) – Defines the core domain classes (Student, Instructor, Course, Person).
-
-Validation (src/validation/) – Handles input validation and normalization using regex and utility functions.
-
-Persistence (src/persistence/) – Handles JSON serialization and deserialization for saving/loading data.
-
-Database (db/) – Contains the SQLiteRepository that performs CRUD operations on the database.
-
-Tests (tests/) – Pytest-based tests verifying relationships, serialization, and object logic.
 
 ### 📜 Example CLI Commands
 To run the app:
