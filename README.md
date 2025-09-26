@@ -56,69 +56,65 @@ Check your Python version:
 python --version
 ```
 
-
-
-
-
 ### 2. 📥 Clone the Repository
 Use git to clone the project locally:
 ```
-git clone https://github.com/<your-username>/<your-repo-name>.git
+git clone https://github.com/LineIntegralx/Lab4_LynnAriss_TamaraFakih.git
 ```
 Then navigate into the project directory:
 ```
-cd <your-repo-name>
+cd Lab4_LynnAriss_TamaraFakih
 ```
 
-3. 🧪 Create a Virtual Environment (Recommended)
+### 3. 🧪 Create a Virtual Environment (Recommended)
 It’s best practice to create a virtual environment to isolate project dependencies.
 
 Windows (PowerShell):
-
-bash
-Copy code
+```
 python -m venv venv
-venv\Scripts\activate
+venv\Scripts\
+```
 macOS / Linux:
 
-bash
-Copy code
+```
 python3 -m venv venv
 source venv/bin/activate
-4. 📦 Install Dependencies
+```
+
+### 4. 📦 Install Dependencies
 Install the required Python packages using pip:
 
-bash
-Copy code
+```
 pip install -r requirements.txt
-If you encounter issues with PyQt5, you can install it manually:
+```
 
-bash
-Copy code
+If you encounter issues with PyQt5, you can install it manually:
+```
 pip install PyQt5
+```
 5. 🗃️ (Optional) Initialize the Database
 The SQLite database is automatically created on first run.
-If you want to start from scratch, simply delete the existing .db file (e.g., school.db).
+If you want to start from scratch, simply delete the existing .db file (school.db), and rerun the database initialization script init_db.py again.
 
-6. 🚀 Run the Application
+### 6. 🚀 Run the Application
 Launch the application using the GUI chooser script:
 
-bash
-Copy code
+```
 python gui/choose_gui.py
+```
 You will be prompted to choose between:
 
 PyQt5 – Full-featured modern interface
 
 Tkinter – Lightweight fallback GUI
 
-7. 🔍 Run Unit Tests (Optional)
+### 7. 🔍 Run Unit Tests (Optional)
 You can verify that everything is working correctly by running the test suite:
 
-bash
-Copy code
+```
 pytest
-📸 Example Features in Action
+```
+### 📸 Example Features in Action
 Once the application is running, you can:
 
 ➕ Add new students, instructors, and courses
@@ -133,8 +129,8 @@ Once the application is running, you can:
 
 📤 Backup and restore the entire database with one click
 
-🧪 Project Structure Explanation
-GUI Layer (gui/) – Contains the main graphical interface using PyQt5 and a launcher using Tkinter.
+### 🧪 Project Structure Explanation
+GUI Layer (src/gui/) – Contains the main graphical interface using PyQt5 and a launcher using Tkinter.
 
 Models (src/models/) – Defines the core domain classes (Student, Instructor, Course, Person).
 
@@ -146,29 +142,28 @@ Database (db/) – Contains the SQLiteRepository that performs CRUD operations o
 
 Tests (tests/) – Pytest-based tests verifying relationships, serialization, and object logic.
 
-📜 Example CLI Commands
+### 📜 Example CLI Commands
 To run the app:
 
-bash
-Copy code
+```
 python gui/choose_gui.py
+```
+
 To run tests:
-
-bash
-Copy code
+```
 pytest
+```
 To export data as JSON:
-
-bash
-Copy code
+```
 python -m src.persistence.json_store
-🛠️ Troubleshooting
+```
+### 🛠️ Troubleshooting
 ❗ PyQt5 ImportError:
 Make sure it’s installed:
 
-bash
-Copy code
+```
 pip install PyQt5
+```
 ❗ tkinter not found:
 tkinter is part of the Python standard library. If missing, install it using your OS package manager:
 
@@ -178,11 +173,11 @@ macOS: Usually included with Python
 
 Windows: Included with official Python installer
 
-📜 License
+### 📜 License
 This project is created for educational and demonstration purposes.
 You are free to modify, distribute, and adapt it for your own learning or projects.
 
-🤝 Contributing
+### 🤝 Contributing
 Contributions are welcome!
 If you’d like to improve the project:
 
@@ -194,8 +189,8 @@ Commit your changes
 
 Submit a pull request 🚀
 
-👩‍💻 Author
-Developed by [Your Name] – a demonstration project for Python desktop app development with databases and GUI frameworks.
+### 👩‍💻 Author
+Developed by Tamara Fakih and Lynn Ariss – a demonstration project for Python desktop app development with databases and GUI frameworks.
 
 ⭐ Acknowledgements
 Built with Python
@@ -207,12 +202,5 @@ Database layer with SQLite
 Documentation generated with Sphinx
 
 markdown
-Copy code
-
-✅ **Tips before committing:**
-- Replace `<your-username>` and `<your-repo-name>` with your actual GitHub repo path.
-- Add your name in the **Author** section.
-- Optionally insert screenshots using:
-
 ```markdown
 ![App Screenshot](images/screenshot.png)
